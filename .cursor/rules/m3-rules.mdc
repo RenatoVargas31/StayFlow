@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- To include components in the project you must use them as described in the Material Design GitHub documentation. Do not edit the attributes until I tell you to.
