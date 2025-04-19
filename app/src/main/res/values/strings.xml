@@ -4,6 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Buscar" />
     <string name="Favoritos" />
+    <string name="Inicio" />
     <string name="Reservas" />
     <string name="Perfil" />
     <string name="title_activity_main2">MainActivity2</string>
