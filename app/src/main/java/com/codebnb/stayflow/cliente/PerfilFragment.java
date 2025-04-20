@@ -9,17 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.codebnb.stayflow.databinding.ClienteFragmentBuscarBinding;
+import com.codebnb.stayflow.databinding.ClienteFragmentPerfilBinding;
 
-public class BuscarFragment extends Fragment {
+public class PerfilFragment extends Fragment {
 
-    private ClienteFragmentBuscarBinding binding;
+    private ClienteFragmentPerfilBinding binding;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ClienteFragmentBuscarBinding.inflate(inflater, container, false);
+        binding = ClienteFragmentPerfilBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 }
