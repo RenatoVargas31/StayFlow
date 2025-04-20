@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.appbar.MaterialToolbar;
-
+/*
 public class SuperAdminActivity extends AppCompatActivity {
 
     private MaterialToolbar topAppBar;
@@ -60,4 +60,4 @@ public class SuperAdminActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.superadmin_menu, menu);
         return true;
     }
-}
+}*/

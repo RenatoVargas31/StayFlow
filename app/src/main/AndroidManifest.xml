@@ -13,10 +13,21 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
-            android:name=".DriverActivity"
+            android:name=".DriverPerfilActivity"
             android:exported="false" />
         <activity
-            android:name=".ClienteActivity"
+            android:name=".DriverMapaActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".DriverReservaActivity"
+            android:exported="false" />
+        <!--<activity
+            android:name=".DriverActivity"
+            android:exported="false" />
+        -->
+        <activity
+            android:name=".DriverActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +35,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SuperAdminActivity"
-            android:exported="false" />
     </application>
 
 </manifest>
