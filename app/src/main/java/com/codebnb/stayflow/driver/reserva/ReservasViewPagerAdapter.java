@@ -1,15 +1,8 @@
 package com.codebnb.stayflow.driver.reserva;
 
-import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-
-import com.codebnb.stayflow.ActivoFragment;
-import com.codebnb.stayflow.CanceladoFragment;
-import com.codebnb.stayflow.PasadoFragment;
 
 public class ReservasViewPagerAdapter extends FragmentStateAdapter {
 

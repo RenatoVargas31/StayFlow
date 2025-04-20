@@ -1,24 +1,17 @@
-package com.codebnb.stayflow;
+package com.codebnb.stayflow.driver;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
-import com.codebnb.stayflow.driver.home.DriverInicioFragment;
-import com.codebnb.stayflow.driver.reserva.DriverReservasFragment;
+import com.codebnb.stayflow.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DriverActivity extends AppCompatActivity {
