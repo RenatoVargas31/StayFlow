@@ -30,7 +30,6 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-
                 android:clickable="true"
                 android:focusable="true"
                 app:cardElevation="6dp"
@@ -40,8 +39,7 @@
                 app:cardBackgroundColor="@color/white"
                 app:rippleColor="?attr/colorControlHighlight">
 
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp">
@@ -57,8 +55,8 @@
 
                     <TextView
                         android:id="@+id/tv_hotel1_nombre"
-                        android:layout_width="214dp"
-                        android:layout_height="18dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="8dp"
                         android:text="Luis Quispe Rojas"
@@ -82,6 +80,18 @@
                         app:layout_constraintTop_toBottomOf="@+id/tv_hotel1_nombre" />
 
                     <TextView
+                        android:id="@+id/tv_km1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="1.2 Km"
+                        android:textColor="#757575"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_pasajero1"
+                        app:layout_constraintStart_toStartOf="@+id/tv_pasajero1"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_pasajero1" />
+
+                    <TextView
                         android:id="@+id/tv_hora1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -92,9 +102,30 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/iv_hotel1_icon" />
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_activo1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:minWidth="0dp"
+                        android:minHeight="32dp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:text="Ver"
+                        android:textColor="@android:color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/md_theme_primary"
+                        app:cornerRadius="16dp"
+                        app:icon="@drawable/ic_ver"
+                        app:iconPadding="4dp"
+                        app:iconTint="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_hotel1_icon" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
-
             <!-- Reserva 2 -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_reserva2"
@@ -104,7 +135,6 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-
                 android:clickable="true"
                 android:focusable="true"
                 app:cardElevation="6dp"
@@ -113,7 +143,6 @@
                 app:strokeColor="@color/md_theme_outline"
                 app:cardBackgroundColor="@color/white"
                 app:rippleColor="?attr/colorControlHighlight">
-
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -154,6 +183,17 @@
                         app:layout_constraintEnd_toEndOf="@+id/tv_hotel2_nombre"
                         app:layout_constraintStart_toStartOf="@+id/tv_hotel2_nombre"
                         app:layout_constraintTop_toBottomOf="@+id/tv_hotel2_nombre" />
+                    <TextView
+                        android:id="@+id/tv_km2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="1.0 Km"
+                        android:textColor="#757575"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_pasajero2"
+                        app:layout_constraintStart_toStartOf="@+id/tv_pasajero2"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_pasajero2" />
 
                     <TextView
                         android:id="@+id/tv_hora2"
@@ -166,9 +206,29 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/iv_hotel2_icon" />
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_activo2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:minWidth="0dp"
+                        android:minHeight="32dp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:text="Ver"
+                        android:textColor="@android:color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/md_theme_primary"
+                        app:cornerRadius="16dp"
+                        app:icon="@drawable/ic_ver"
+                        app:iconPadding="4dp"
+                        app:iconTint="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_hotel2_icon" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
-
             <!-- Reserva 3 -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_reserva3"
@@ -178,7 +238,6 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-
                 android:clickable="true"
                 android:focusable="true"
                 app:cardElevation="6dp"
@@ -187,7 +246,6 @@
                 app:strokeColor="@color/md_theme_outline"
                 app:cardBackgroundColor="@color/white"
                 app:rippleColor="?attr/colorControlHighlight">
-
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -228,6 +286,17 @@
                         app:layout_constraintEnd_toEndOf="@+id/tv_hotel3_nombre"
                         app:layout_constraintStart_toStartOf="@+id/tv_hotel3_nombre"
                         app:layout_constraintTop_toBottomOf="@+id/tv_hotel3_nombre" />
+                    <TextView
+                        android:id="@+id/tv_km3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="1.5 Km"
+                        android:textColor="#757575"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_pasajero3"
+                        app:layout_constraintStart_toStartOf="@+id/tv_pasajero3"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_pasajero3" />
 
                     <TextView
                         android:id="@+id/tv_hora3"
@@ -240,9 +309,29 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/iv_hotel3_icon" />
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_activo3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:minWidth="0dp"
+                        android:minHeight="32dp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:text="Ver"
+                        android:textColor="@android:color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/md_theme_primary"
+                        app:cornerRadius="16dp"
+                        app:icon="@drawable/ic_ver"
+                        app:iconPadding="4dp"
+                        app:iconTint="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_hotel3_icon" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
-
             <!-- Reserva 4 -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_reserva4"
@@ -252,7 +341,6 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-
                 android:clickable="true"
                 android:focusable="true"
                 app:cardElevation="6dp"
@@ -261,7 +349,6 @@
                 app:strokeColor="@color/md_theme_outline"
                 app:cardBackgroundColor="@color/white"
                 app:rippleColor="?attr/colorControlHighlight">
-
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -302,6 +389,17 @@
                         app:layout_constraintEnd_toEndOf="@+id/tv_hotel4_nombre"
                         app:layout_constraintStart_toStartOf="@+id/tv_hotel4_nombre"
                         app:layout_constraintTop_toBottomOf="@+id/tv_hotel4_nombre" />
+                    <TextView
+                        android:id="@+id/tv_km4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="1.2 Km"
+                        android:textColor="#757575"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_pasajero4"
+                        app:layout_constraintStart_toStartOf="@+id/tv_pasajero4"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_pasajero4" />
 
                     <TextView
                         android:id="@+id/tv_hora4"
@@ -314,12 +412,29 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/iv_hotel4_icon" />
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_activo4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:minWidth="0dp"
+                        android:minHeight="32dp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:text="Ver"
+                        android:textColor="@android:color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/md_theme_primary"
+                        app:cornerRadius="16dp"
+                        app:icon="@drawable/ic_ver"
+                        app:iconPadding="4dp"
+                        app:iconTint="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_hotel4_icon" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
-
-
-
-
 
             <!-- ... Aquí puedes seguir añadiendo más elementos ... -->
 
