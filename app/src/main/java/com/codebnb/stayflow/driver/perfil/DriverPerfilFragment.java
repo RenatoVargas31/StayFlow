@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -20,7 +21,6 @@ import com.codebnb.stayflow.R;
 public class DriverPerfilFragment extends Fragment {
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,14 +28,23 @@ public class DriverPerfilFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_driver_perfil, container, false);
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ImageView ivProfilePicture = view.findViewById(R.id.iv_profile_picture);
-        TextView tvNombreTaxista = view.findViewById(R.id.tv_nombre_taxista);
-        TextView tvLabelTaxista = view.findViewById(R.id.tv_label_taxista );
+
+        //Buscamos el contenedor del vehiculo
+        ConstraintLayout layoutVehicleModel = view.findViewById(R.id.layout_vehicle_model);
+
+
+        layoutVehicleModel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), VehiculoActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }
