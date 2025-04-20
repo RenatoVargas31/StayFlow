@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/driver_menu" />
 
-    <!-- Barra superior -->
+    <!-- Barra superior
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
         android:layout_width="0dp"
@@ -33,7 +33,7 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" /> -->
 
     <!-- Contenido principal -->
     <androidx.fragment.app.FragmentContainerView
@@ -41,12 +41,12 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:navGraph="@navigation/driver_navigation"
-        app:defaultNavHost="true"
         android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/materialToolbar"
+        app:defaultNavHost="true"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:navGraph="@navigation/driver_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

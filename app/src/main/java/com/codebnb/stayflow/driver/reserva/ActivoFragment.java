@@ -27,7 +27,7 @@ public class ActivoFragment extends Fragment {
     private TextView tvNombre2, tvRuta2, tvFechaHora2;
     private TextView tvNombre3, tvRuta3, tvFechaHora3;
     private TextView tvNombre4, tvRuta4, tvFechaHora4;
-    private Button btnActivo1, btnActivo2, btnActivo3, btnActivo4;
+    private Button btnActivo1;
 
     // Vista para el estado vacío
     private LinearLayout emptyView;
@@ -51,29 +51,12 @@ public class ActivoFragment extends Fragment {
 
         // Inicializar referencias a los botoness de las tarjetas
         btnActivo1 = view.findViewById(R.id.btn_activo1);
-        btnActivo2 = view.findViewById(R.id.btn_activo2);
-        btnActivo3 = view.findViewById(R.id.btn_activo3);
-        btnActivo4 = view.findViewById(R.id.btn_activo4);
 
         // Inicializar referencias a los textos de la tarjeta 1
         tvNombre1 = view.findViewById(R.id.tv_hotel1_nombre);
         tvRuta1 = view.findViewById(R.id.tv_pasajero1);
         tvFechaHora1 = view.findViewById(R.id.tv_hora1);
 
-        // Inicializar referencias a los textos de la tarjeta 2
-        tvNombre2 = view.findViewById(R.id.tv_hotel2_nombre);
-        tvRuta2 = view.findViewById(R.id.tv_pasajero2);
-        tvFechaHora2 = view.findViewById(R.id.tv_hora2);
-
-        // Inicializar referencias a los textos de la tarjeta 3
-        tvNombre3 = view.findViewById(R.id.tv_hotel3_nombre);
-        tvRuta3 = view.findViewById(R.id.tv_pasajero3);
-        tvFechaHora3 = view.findViewById(R.id.tv_hora3);
-
-        // Inicializar referencias a los textos de la tarjeta 4
-        tvNombre4 = view.findViewById(R.id.tv_hotel4_nombre);
-        tvRuta4 = view.findViewById(R.id.tv_pasajero4);
-        tvFechaHora4 = view.findViewById(R.id.tv_hora4);
 
         // Vista de estado vacío
         emptyView = view.findViewById(R.id.empty_view);

@@ -1,5 +1,6 @@
 package com.codebnb.stayflow.driver.reserva;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.codebnb.stayflow.R;
+
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,7 +29,7 @@ public class PasadoFragment extends Fragment {
 
     // Vistas para el texto dentro de la tarjeta
     private TextView tvNombre1, tvRuta1;
-    private MaterialButton btnCompletado1;
+    private Button btnCompletado1;
 
     // Vista para el estado vacío
     private LinearLayout emptyView;
@@ -53,7 +56,16 @@ public class PasadoFragment extends Fragment {
         // Inicializar referencias a los textos de la tarjeta
         tvNombre1 = view.findViewById(R.id.tv_hotel1_nombre);
         tvRuta1 = view.findViewById(R.id.tv_pasajero1);
+
         btnCompletado1 = view.findViewById(R.id.btn_completado1);
 
+        btnCompletado1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navegar a DetallesReservaPasadoActivity
+                Intent intent = new Intent(getActivity(), DetallesReservaPasadoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

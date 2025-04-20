@@ -68,16 +68,27 @@
                         app:layout_constraintTop_toTopOf="@+id/iv_hotel1_icon" />
 
                     <TextView
-                        android:id="@+id/tv_pasajero1"
+                        android:id="@+id/tv_origen1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Altura Real Hotel -> Aeropuerto"
+                        android:text="De: Altura Real Hotel"
                         android:textColor="#757575"
                         android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="@+id/tv_hotel1_nombre"
                         app:layout_constraintStart_toStartOf="@+id/tv_hotel1_nombre"
                         app:layout_constraintTop_toBottomOf="@+id/tv_hotel1_nombre" />
+                    <TextView
+                        android:id="@+id/tv_destino1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="A: Aeropuerto"
+                        android:textColor="#757575"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_origen1"
+                        app:layout_constraintStart_toStartOf="@+id/tv_origen1"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_origen1" />
 
                     <TextView
                         android:id="@+id/tv_km1"
@@ -87,9 +98,9 @@
                         android:text="1.2 Km"
                         android:textColor="#757575"
                         android:textSize="12sp"
-                        app:layout_constraintEnd_toEndOf="@+id/tv_pasajero1"
-                        app:layout_constraintStart_toStartOf="@+id/tv_pasajero1"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_pasajero1" />
+                        app:layout_constraintEnd_toEndOf="@+id/tv_destino1"
+                        app:layout_constraintStart_toStartOf="@+id/tv_destino1"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_destino1" />
 
                     <TextView
                         android:id="@+id/tv_hora1"
@@ -113,12 +124,12 @@
                         android:paddingStart="12dp"
                         android:paddingEnd="12dp"
                         android:text="Ver"
+                        app:icon="@drawable/ic_ver"
                         android:textColor="@android:color/white"
                         android:textSize="10sp"
                         android:textStyle="bold"
                         app:backgroundTint="@color/md_theme_primary"
                         app:cornerRadius="16dp"
-                        app:icon="@drawable/ic_ver"
                         app:iconPadding="4dp"
                         app:iconTint="@android:color/white"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -173,16 +184,30 @@
                         app:layout_constraintTop_toTopOf="@+id/iv_hotel2_icon" />
 
                     <TextView
-                        android:id="@+id/tv_pasajero2"
+                        android:id="@+id/tv_origen2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Aeropuerto -> Oasis Urbano"
+                        android:text="De: Aeropuerto"
                         android:textColor="#757575"
                         android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="@+id/tv_hotel2_nombre"
                         app:layout_constraintStart_toStartOf="@+id/tv_hotel2_nombre"
                         app:layout_constraintTop_toBottomOf="@+id/tv_hotel2_nombre" />
+
+                    <TextView
+                        android:id="@+id/tv_destino2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="A: Oasis Urbano"
+                        android:textColor="#757575"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_origen2"
+                        app:layout_constraintStart_toStartOf="@+id/tv_origen2"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_origen2" />
+
+
                     <TextView
                         android:id="@+id/tv_km2"
                         android:layout_width="0dp"
@@ -191,9 +216,9 @@
                         android:text="1.0 Km"
                         android:textColor="#757575"
                         android:textSize="12sp"
-                        app:layout_constraintEnd_toEndOf="@+id/tv_pasajero2"
-                        app:layout_constraintStart_toStartOf="@+id/tv_pasajero2"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_pasajero2" />
+                        app:layout_constraintEnd_toEndOf="@+id/tv_destino2"
+                        app:layout_constraintStart_toStartOf="@+id/tv_destino2"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_destino2" />
 
                     <TextView
                         android:id="@+id/tv_hora2"
@@ -276,16 +301,28 @@
                         app:layout_constraintTop_toTopOf="@+id/iv_hotel3_icon" />
 
                     <TextView
-                        android:id="@+id/tv_pasajero3"
+                        android:id="@+id/tv_origen3"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="La Casona del Lago -> Aeropuerto"
+                        android:text="De: La Casona del Lago"
                         android:textColor="#757575"
                         android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="@+id/tv_hotel3_nombre"
                         app:layout_constraintStart_toStartOf="@+id/tv_hotel3_nombre"
                         app:layout_constraintTop_toBottomOf="@+id/tv_hotel3_nombre" />
+                    <TextView
+                        android:id="@+id/tv_destino3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="A: Aeropuerto"
+                        android:textColor="#757575"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_origen3"
+                        app:layout_constraintStart_toStartOf="@+id/tv_origen3"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_origen3" />
+
                     <TextView
                         android:id="@+id/tv_km3"
                         android:layout_width="0dp"
@@ -294,9 +331,9 @@
                         android:text="1.5 Km"
                         android:textColor="#757575"
                         android:textSize="12sp"
-                        app:layout_constraintEnd_toEndOf="@+id/tv_pasajero3"
-                        app:layout_constraintStart_toStartOf="@+id/tv_pasajero3"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_pasajero3" />
+                        app:layout_constraintEnd_toEndOf="@+id/tv_destino3"
+                        app:layout_constraintStart_toStartOf="@+id/tv_destino3"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_destino3" />
 
                     <TextView
                         android:id="@+id/tv_hora3"
@@ -379,16 +416,27 @@
                         app:layout_constraintTop_toTopOf="@+id/iv_hotel4_icon" />
 
                     <TextView
-                        android:id="@+id/tv_pasajero4"
+                        android:id="@+id/tv_origen4"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Aeropuerto -> La Perla"
+                        android:text="De: Aeropuerto"
                         android:textColor="#757575"
                         android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="@+id/tv_hotel4_nombre"
                         app:layout_constraintStart_toStartOf="@+id/tv_hotel4_nombre"
                         app:layout_constraintTop_toBottomOf="@+id/tv_hotel4_nombre" />
+                    <TextView
+                        android:id="@+id/tv_destino4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="A: La Perla"
+                        android:textColor="#757575"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_origen4"
+                        app:layout_constraintStart_toStartOf="@+id/tv_origen4"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_origen4" />
                     <TextView
                         android:id="@+id/tv_km4"
                         android:layout_width="0dp"
@@ -397,9 +445,9 @@
                         android:text="1.2 Km"
                         android:textColor="#757575"
                         android:textSize="12sp"
-                        app:layout_constraintEnd_toEndOf="@+id/tv_pasajero4"
-                        app:layout_constraintStart_toStartOf="@+id/tv_pasajero4"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_pasajero4" />
+                        app:layout_constraintEnd_toEndOf="@+id/tv_destino4"
+                        app:layout_constraintStart_toStartOf="@+id/tv_destino4"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_destino4" />
 
                     <TextView
                         android:id="@+id/tv_hora4"

@@ -44,10 +44,10 @@ public class DriverReservasFragment extends Fragment {
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
             switch (position) {
                 case 0:
-                    tab.setText("Activo");
+                    tab.setText("En curso");
                     break;
                 case 1:
-                    tab.setText("Pasado");
+                    tab.setText("Completado");
                     break;
                 case 2:
                     tab.setText("Cancelado");

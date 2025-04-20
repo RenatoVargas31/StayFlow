@@ -1,8 +1,10 @@
 package com.codebnb.stayflow.driver.reserva;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -12,10 +14,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.appcompat.widget.Toolbar;
 import com.codebnb.stayflow.R;
+import com.codebnb.stayflow.driver.mapa.DriverMapaFragment;
 
 import java.util.Objects;
 
 public class DetallesReservaActivity extends AppCompatActivity {
+
+    private Button btnVerMapa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +41,15 @@ public class DetallesReservaActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+        /*
+        btnVerMapa = findViewById(R.id.btn_ver_mapa);
+        btnVerMapa.setOnClickListener(v -> {
+            Intent intent = new Intent(DetallesReservaActivity.this, DriverMapaFragment.class);
+            startActivity(intent);
+        });*/
 
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -47,6 +59,8 @@ public class DetallesReservaActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 
 /*
     @Override
