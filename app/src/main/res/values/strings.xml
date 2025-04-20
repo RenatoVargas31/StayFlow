@@ -11,4 +11,17 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <!-- SuperAdmin Strings -->
+    <string name="superadmin_title">SuperAdmin</string>
+
+    <!-- Menu Actions -->
+    <string name="action_settings">Configuración</string>
+    <string name="action_users">Usuarios</string>
+    <string name="action_logout">Cerrar Sesión</string>
+
+    <!-- Content Descriptions -->
+    <string name="content_description_settings">Configuración del sistema</string>
+    <string name="content_description_users">Gestión de usuarios</string>
+    <string name="content_description_logout">Cerrar sesión</string>
 </resources>
