@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,6 +27,7 @@ public class ActivoFragment extends Fragment {
     private TextView tvNombre2, tvRuta2, tvFechaHora2;
     private TextView tvNombre3, tvRuta3, tvFechaHora3;
     private TextView tvNombre4, tvRuta4, tvFechaHora4;
+    private Button btnActivo1, btnActivo2, btnActivo3, btnActivo4;
 
     // Vista para el estado vacío
     private LinearLayout emptyView;
@@ -45,6 +48,12 @@ public class ActivoFragment extends Fragment {
         cardReserva2 = view.findViewById(R.id.card_reserva2);
         cardReserva3 = view.findViewById(R.id.card_reserva3);
         cardReserva4 = view.findViewById(R.id.card_reserva4);
+
+        // Inicializar referencias a los botoness de las tarjetas
+        btnActivo1 = view.findViewById(R.id.btn_activo1);
+        btnActivo2 = view.findViewById(R.id.btn_activo2);
+        btnActivo3 = view.findViewById(R.id.btn_activo3);
+        btnActivo4 = view.findViewById(R.id.btn_activo4);
 
         // Inicializar referencias a los textos de la tarjeta 1
         tvNombre1 = view.findViewById(R.id.tv_hotel1_nombre);
@@ -68,6 +77,17 @@ public class ActivoFragment extends Fragment {
 
         // Vista de estado vacío
         emptyView = view.findViewById(R.id.empty_view);
+
+        // Ver detalles de reserva
+
+        btnActivo1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navegar a DetallesReservaActivity
+                Intent intent = new Intent(getActivity(), DetallesReservaActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
