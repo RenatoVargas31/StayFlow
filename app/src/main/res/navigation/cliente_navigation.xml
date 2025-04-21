@@ -8,7 +8,11 @@
         android:id="@+id/nav_buscar"
         android:name="com.codebnb.stayflow.cliente.BuscarFragment"
         android:label="cliente_fragment_buscar"
-        tools:layout="@layout/cliente_fragment_buscar" />
+        tools:layout="@layout/cliente_fragment_buscar" >
+        <action
+            android:id="@+id/action_nav_buscar_to_busquedaHotelFragment"
+            app:destination="@id/busquedaHotelFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_favoritos"
         android:name="com.codebnb.stayflow.cliente.FavoritoFragment"
@@ -24,5 +28,14 @@
         android:name="com.codebnb.stayflow.cliente.PerfilFragment"
         android:label="cliente_fragment_perfil"
         tools:layout="@layout/cliente_fragment_perfil" />
+    <fragment
+        android:id="@+id/busquedaHotelFragment"
+        android:name="com.codebnb.stayflow.cliente.BusquedaHotelFragment"
+        android:label="cliente_fragment_busqueda_hotel"
+        tools:layout="@layout/cliente_fragment_busqueda_hotel" >
+        <action
+            android:id="@+id/action_busquedaHotelFragment_to_nav_buscar"
+            app:destination="@id/nav_buscar" />
+    </fragment>
 
 </navigation>

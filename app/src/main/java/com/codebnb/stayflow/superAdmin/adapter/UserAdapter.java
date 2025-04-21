@@ -19,7 +19,7 @@ import java.util.List;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
 
     private List<User> userList;
-    private List<User> userListFull; // Para filtrado
+    private List<User> userListFull;
     private OnUserClickListener listener;
 
     public interface OnUserClickListener {
@@ -50,7 +50,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.switchUserStatus.setChecked(user.isEnabled());
         holder.textViewUserStatus.setText(user.isEnabled() ? "Habilitado" : "Deshabilitado");
 
-        // Configurar listeners
         holder.imageViewDetails.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onDetailsClick(holder.getAdapterPosition());
@@ -70,7 +69,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         return userList.size();
     }
 
-    // Método para filtrar por tipo de usuario
+    // Agregar nuevo usuario estructuradamente
+    public void addUser(User user) {
+        userList.add(0, user);
+        userListFull.add(0, user);
+        notifyItemInserted(0);
+    }
+
     public void filterByType(String userType) {
         userList.clear();
 
@@ -87,7 +92,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         notifyDataSetChanged();
     }
 
-    // Método para filtrar por texto de búsqueda
     public void filterByText(String searchText) {
         userList.clear();
 

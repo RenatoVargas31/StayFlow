@@ -1,23 +1,37 @@
 package com.codebnb.stayflow;
 
 import android.os.Bundle;
+import android.view.View;
+
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.codebnb.stayflow.R;
 import com.codebnb.stayflow.superAdmin.*;
 
 public class SuperAdminActivity extends AppCompatActivity {
 
-    BottomNavigationView bottomNav;
+    private BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.superadmin_activity);
+        MaterialToolbar toolbar = findViewById(R.id.topAppBar);
+        toolbar.setOnMenuItemClickListener(item -> {
+            if (item.getItemId() == R.id.action_logs) {
+                // Cargar fragmento de logs
+                loadFragment(new LogsFragment()); // Cambia esto si tienes otra forma de ver logs
+                return true;
+            }
+            return false;
+        });
+
 
         bottomNav = findViewById(R.id.bottom_navigation);
+
         bottomNav.setOnItemSelectedListener(item -> {
             Fragment selectedFragment = null;
 
@@ -35,6 +49,26 @@ public class SuperAdminActivity extends AppCompatActivity {
             return loadFragment(selectedFragment);
         });
 
+        // Configurar el callback para el botón de retroceso
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+
+                if (currentFragment instanceof UserDetailFragment) {
+                    if (bottomNav != null) {
+                        bottomNav.setVisibility(View.VISIBLE);
+                    }
+                }
+
+                if (isEnabled()) {
+                    setEnabled(false);
+                    getOnBackPressedDispatcher().onBackPressed();
+                    setEnabled(true);
+                }
+            }
+        });
+
         // Cargar fragmento inicial
         bottomNav.setSelectedItemId(R.id.nav_inicio);
     }
@@ -48,5 +82,17 @@ public class SuperAdminActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    public void hideBottomNavigation() {
+        if (bottomNav != null) {
+            bottomNav.setVisibility(View.GONE);
+        }
+    }
+
+    public void showBottomNavigation() {
+        if (bottomNav != null) {
+            bottomNav.setVisibility(View.VISIBLE);
+        }
     }
 }
