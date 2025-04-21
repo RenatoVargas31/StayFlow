@@ -8,12 +8,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.codebnb.stayflow.R;
 import com.codebnb.stayflow.superAdmin.*;
 
 public class SuperAdminActivity extends AppCompatActivity {
 
-    BottomNavigationView bottomNav;
+    private BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +20,7 @@ public class SuperAdminActivity extends AppCompatActivity {
         setContentView(R.layout.superadmin_activity);
 
         bottomNav = findViewById(R.id.bottom_navigation);
+
         bottomNav.setOnItemSelectedListener(item -> {
             Fragment selectedFragment = null;
 
@@ -42,21 +42,18 @@ public class SuperAdminActivity extends AppCompatActivity {
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                // Verificar si el fragmento actual es el de detalles del usuario
                 Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
 
                 if (currentFragment instanceof UserDetailFragment) {
-                    // Asegurarse de que se muestre la barra de navegación inferior al retroceder
                     if (bottomNav != null) {
                         bottomNav.setVisibility(View.VISIBLE);
                     }
                 }
 
-                // Si necesitas la funcionalidad predeterminada después:
                 if (isEnabled()) {
                     setEnabled(false);
                     getOnBackPressedDispatcher().onBackPressed();
-                    setEnabled(true); // Vuelve a habilitarlo para futuras pulsaciones
+                    setEnabled(true);
                 }
             }
         });
@@ -76,5 +73,15 @@ public class SuperAdminActivity extends AppCompatActivity {
         return false;
     }
 
-    // Elimina el método onBackPressed() obsoleto
+    public void hideBottomNavigation() {
+        if (bottomNav != null) {
+            bottomNav.setVisibility(View.GONE);
+        }
+    }
+
+    public void showBottomNavigation() {
+        if (bottomNav != null) {
+            bottomNav.setVisibility(View.VISIBLE);
+        }
+    }
 }

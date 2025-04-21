@@ -34,6 +34,7 @@
                     android:text="Todos"
                     app:checkedIconVisible="false"
                     app:chipIcon="@drawable/ic_directions_walk"
+                    app:chipIconTint="@color/md_theme_primary"
                     app:chipIconVisible="true" />
 
                 <com.google.android.material.chip.Chip
@@ -54,6 +55,7 @@
                     android:text="Taxistas"
                     app:checkedIconVisible="false"
                     app:chipIcon="@drawable/ic_local_taxi"
+                    app:chipIconTint="@color/md_theme_primary"
                     app:chipIconVisible="true" />
 
                 <com.google.android.material.chip.Chip
@@ -64,6 +66,7 @@
                     android:text="Clientes"
                     app:checkedIconVisible="false"
                     app:chipIcon="@drawable/ic_person"
+                    app:chipIconTint="@color/md_theme_primary"
                     app:chipIconVisible="true" />
 
             </com.google.android.material.chip.ChipGroup>
@@ -128,7 +131,7 @@
         android:layout_marginBottom="80dp"
         android:text="Agregar Administrador de Hotel"
         app:icon="@drawable/ic_add_circle"
-        app:iconTint="@android:color/white" />
+        app:chipIconTint="@color/md_theme_primary"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
