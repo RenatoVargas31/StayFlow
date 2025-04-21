@@ -39,6 +39,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="10dp">
+
             <!-- Mostrar detalles del vehículo  -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -71,16 +72,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="16dp">
-
-                        <!-- Icono
-                        <ImageView
-                            android:id="@+id/iv_viaje_icon"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_carro"
-                            app:tint="@color/md_theme_primary"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />-->
 
                         <!-- Título -->
                         <TextView

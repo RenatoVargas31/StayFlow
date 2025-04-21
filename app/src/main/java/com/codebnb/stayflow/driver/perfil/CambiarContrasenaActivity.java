@@ -1,10 +1,10 @@
 package com.codebnb.stayflow.driver.perfil;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
-
+import android.content.Intent;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,26 +15,19 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.codebnb.stayflow.R;
 
-public class CorreoActivity extends AppCompatActivity {
+public class CambiarContrasenaActivity extends AppCompatActivity {
 
-    private Button btnCambiarCorreo;
+    private Button btnCancel, btnSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_correo);
+        setContentView(R.layout.activity_cambiar_contrasena);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-        });
-
-        btnCambiarCorreo = findViewById(R.id.btn_change_password);
-        btnCambiarCorreo.setOnClickListener(v -> {
-            // Navegar a la actividad de cambio de contraseña
-            startActivity(new Intent(CorreoActivity.this, CambiarContrasenaActivity.class));
-
         });
 
         // Configurar la Toolbar como ActionBar
@@ -46,13 +39,21 @@ public class CorreoActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
+        btnSave = findViewById(R.id.btn_save);
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CambiarContrasenaActivity.this, CorreoActivity.class));
+            }
+        });
+
+
+
     }
-
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            finish(); // Cierra la actividad actual y vuelve a la anterior
+            onBackPressed(); // vuelve a la actividad anterior
             return true;
         }
         return super.onOptionsItemSelected(item);
