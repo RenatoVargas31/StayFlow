@@ -1,14 +1,359 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorSurfaceVariant"
     tools:context=".adminHotel.home.HabitacionesAdminFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Header -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_back"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Título de sección -->
+    <LinearLayout
+        android:id="@+id/sectionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/room_management"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:textColor="?attr/colorOnSurface" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/room_management_description"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+    </LinearLayout>
+
+    <!-- Lista de habitaciones -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="?attr/colorSurface"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintTop_toBottomOf="@id/sectionTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Habitación Deluxe -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardHabitacionDeluxe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeColor="?attr/colorOutlineVariant"
+                app:strokeWidth="1dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tvRoomTypeDeluxe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/deluxe_room"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="?attr/colorOnSurface"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEditDeluxe"
+                        style="@style/Widget.Material3.Button.IconButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:icon="@drawable/ic_edit"
+                        app:layout_constraintEnd_toStartOf="@id/btnDeleteDeluxe"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/edit_room" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDeleteDeluxe"
+                        style="@style/Widget.Material3.Button.IconButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:icon="@drawable/ic_delete"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/delete_room" />
+
+                    <ImageView
+                        android:id="@+id/ivBedDeluxe"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_rooms"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvRoomTypeDeluxe"
+                        android:layout_marginTop="16dp"
+                        app:tint="?attr/colorOnSurfaceVariant"
+                        android:contentDescription="@string/bed_icon" />
+
+                    <TextView
+                        android:id="@+id/tvCapacityLabelDeluxe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/capacity"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        app:layout_constraintBottom_toBottomOf="@id/ivBedDeluxe"
+                        app:layout_constraintStart_toEndOf="@id/ivBedDeluxe"
+                        app:layout_constraintTop_toTopOf="@id/ivBedDeluxe" />
+
+                    <TextView
+                        android:id="@+id/tvCapacityValueDeluxe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/two_persons"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurface"
+                        app:layout_constraintBottom_toBottomOf="@id/tvCapacityLabelDeluxe"
+                        app:layout_constraintStart_toEndOf="@id/tvCapacityLabelDeluxe"
+                        app:layout_constraintTop_toTopOf="@id/tvCapacityLabelDeluxe" />
+
+                    <ImageView
+                        android:id="@+id/ivSizeDeluxe"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ivBedDeluxe"
+                        android:layout_marginTop="8dp"
+                        app:tint="?attr/colorOnSurfaceVariant"
+                        android:contentDescription="@string/size_icon" />
+
+                    <TextView
+                        android:id="@+id/tvSizeLabelDeluxe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/size"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        app:layout_constraintBottom_toBottomOf="@id/ivSizeDeluxe"
+                        app:layout_constraintStart_toEndOf="@id/ivSizeDeluxe"
+                        app:layout_constraintTop_toTopOf="@id/ivSizeDeluxe" />
+
+                    <TextView
+                        android:id="@+id/tvSizeValueDeluxe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/deluxe_room_size"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurface"
+                        app:layout_constraintBottom_toBottomOf="@id/tvSizeLabelDeluxe"
+                        app:layout_constraintStart_toEndOf="@id/tvSizeLabelDeluxe"
+                        app:layout_constraintTop_toTopOf="@id/tvSizeLabelDeluxe" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Habitación Económica -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardHabitacionEconomica"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeColor="?attr/colorOutlineVariant"
+                app:strokeWidth="1dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tvRoomTypeEconomica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/economic_room"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="?attr/colorOnSurface"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEditEconomica"
+                        style="@style/Widget.Material3.Button.IconButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:icon="@drawable/ic_edit"
+                        app:layout_constraintEnd_toStartOf="@id/btnDeleteEconomica"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/edit_room" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDeleteEconomica"
+                        style="@style/Widget.Material3.Button.IconButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:icon="@drawable/ic_delete"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/delete_room" />
+
+                    <ImageView
+                        android:id="@+id/ivBedEconomica"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_rooms"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvRoomTypeEconomica"
+                        android:layout_marginTop="16dp"
+                        app:tint="?attr/colorOnSurfaceVariant"
+                        android:contentDescription="@string/bed_icon" />
+
+                    <TextView
+                        android:id="@+id/tvCapacityLabelEconomica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/capacity"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        app:layout_constraintBottom_toBottomOf="@id/ivBedEconomica"
+                        app:layout_constraintStart_toEndOf="@id/ivBedEconomica"
+                        app:layout_constraintTop_toTopOf="@id/ivBedEconomica" />
+
+                    <TextView
+                        android:id="@+id/tvCapacityValueEconomica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/two_persons"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurface"
+                        app:layout_constraintBottom_toBottomOf="@id/tvCapacityLabelEconomica"
+                        app:layout_constraintStart_toEndOf="@id/tvCapacityLabelEconomica"
+                        app:layout_constraintTop_toTopOf="@id/tvCapacityLabelEconomica" />
+
+                    <ImageView
+                        android:id="@+id/ivSizeEconomica"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ivBedEconomica"
+                        android:layout_marginTop="8dp"
+                        app:tint="?attr/colorOnSurfaceVariant"
+                        android:contentDescription="@string/size_icon" />
+
+                    <TextView
+                        android:id="@+id/tvSizeLabelEconomica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/size"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        app:layout_constraintBottom_toBottomOf="@id/ivSizeEconomica"
+                        app:layout_constraintStart_toEndOf="@id/ivSizeEconomica"
+                        app:layout_constraintTop_toTopOf="@id/ivSizeEconomica" />
+
+                    <TextView
+                        android:id="@+id/tvSizeValueEconomica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/economic_room_size"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurface"
+                        app:layout_constraintBottom_toBottomOf="@id/tvSizeLabelEconomica"
+                        app:layout_constraintStart_toEndOf="@id/tvSizeLabelEconomica"
+                        app:layout_constraintTop_toTopOf="@id/tvSizeLabelEconomica" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Botón de agregar habitación -->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabAddRoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="16dp"
+        android:text="@string/add_room"
+        app:icon="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Estado vacío (sin habitaciones) - Inicialmente invisible -->
+    <LinearLayout
+        android:id="@+id/emptyState"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="?attr/colorSurface"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sectionTitle">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_rooms"
+            android:textAppearance="?attr/textAppearanceHeadlineMedium"
+            android:textColor="?attr/colorOnSurface" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rooms_will_appear_here"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddFirstRoom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/add_first_room"
+            app:icon="@drawable/ic_add"
+            style="@style/Widget.Material3.Button" />
+    </LinearLayout>
+
+    <!-- BottomNavigation solo para la transición (no visible normalmente) -->
+    <View
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone" />
+</androidx.constraintlayout.widget.ConstraintLayout>

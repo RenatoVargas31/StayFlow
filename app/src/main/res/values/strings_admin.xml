@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--galería-->
+    <string name="confirm_cancel">¿Cancelar cambios?</string>
+    <string name="discard_changes_message">Se perderán los cambios no guardados. ¿Deseas continuar?</string>
+    <string name="keep_editing">Seguir editando</string>
+    <string name="discard">Descartar</string>
+
+    <string name="confirm_delete">¿Eliminar imagen?</string>
+    <string name="delete_image_message">¿Estás seguro de que deseas eliminar esta imagen?</string>
+    <string name="changes_saved">Cambios guardados</string>
+    <string name="gallery_updated_message">La galería fue actualizada correctamente.</string>
+
+    <!-- Strings para la gestión de habitaciones -->
+    <string name="hotel_info">Información del hotel</string>
+    <string name="room_management">Gestión de habitaciones</string>
+    <string name="room_management_description">En esta sección agregas el tipo de habitación y la cantidad de camas que tiene tu alojamiento.</string>
+
+    <!-- Tipos de habitaciones -->
+    <string name="deluxe_room">Habitación Deluxe</string>
+    <string name="economic_room">Habitación Económica</string>
+    <string name="deluxe_room_size">40 metros cuadrados</string>
+    <string name="economic_room_size">18 metros cuadrados</string>
+
+    <!-- Detalles de habitaciones -->
+    <string name="capacity">Capacidad:</string>
+    <string name="size">Tamaño:</string>
+    <string name="two_persons">2 personas</string>
+    <string name="bed_icon">Icono de cama</string>
+    <string name="size_icon">Icono de tamaño</string>
+
+    <!-- Acciones -->
+    <string name="add_room">Agregar habitación</string>
+    <string name="edit_room">Editar habitación</string>
+    <string name="delete_room">Eliminar habitación</string>
+    <string name="add_first_room">Agregar primera habitación</string>
+
+    <!-- Estado vacío -->
+    <string name="no_rooms">No hay habitaciones</string>
+    <string name="rooms_will_appear_here">Tus habitaciones aparecerán aquí</string>
+
+    <!-- Formulario de habitación -->
+    <string name="register_new_room">Registrar nueva habitación</string>
+    <string name="select_room_type">Seleccione el tipo de habitación</string>
+    <string name="edit_room_details">Editar detalles de la habitación</string>
+    <string name="room_type">Tipo de habitación</string>
+    <string name="enter_guest_capacity">Ingrese la capacidad máxima de huéspedes</string>
+    <string name="adults">Adultos</string>
+    <string name="children">Niños</string>
+    <string name="enter_room_size">Ingrese el tamaño en m² de la habitación</string>
+    <string name="room_size_in_m2">Tamaño en m²</string>
+    <string name="save">Guardar</string>
+
+    <!-- Diálogos -->
+    <string name="confirm_delete_room">Confirmar eliminación</string>
+    <string name="delete_room_confirmation">¿Estás seguro de que deseas eliminar la habitación %s? Esta acción no se puede deshacer.</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Eliminar</string>
+    <string name="room_deleted">Habitación eliminada</string>
+    <string name="room_deleted_success">La habitación %s ha sido eliminada correctamente.</string>
+    <string name="success">Operación exitosa</string>
+    <string name="room_added_success">La habitación ha sido agregada correctamente.</string>
+    <string name="room_updated_success">La habitación ha sido actualizada correctamente.</string>
+    <string name="ok">Aceptar</string>
+    <string name="validation_error">Error de validación</string>
+    <string name="fill_required_fields">Por favor, complete todos los campos requeridos.</string>
+</resources>

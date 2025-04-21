@@ -1,14 +1,324 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorSurfaceVariant"
     tools:context=".adminHotel.home.GaleriaAdminFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Header -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_back"
+             />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Título de sección -->
+    <LinearLayout
+        android:id="@+id/sectionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Galería"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:textColor="?attr/colorOnSurface" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="En esta sección carga imágenes del hotel y sus instalaciones."
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mínimo 4 fotos."
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+    </LinearLayout>
+
+    <!-- ScrollView para el contenido -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="?attr/colorSurface"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintTop_toBottomOf="@id/sectionTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Grid de imágenes -->
+            <GridLayout
+                android:id="@+id/imageGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:useDefaultMargins="true">
+
+                <!-- Imagen 1 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/image1"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/sample_hotel_1"
+                            android:contentDescription="Imagen de hotel" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/deleteImage1"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="top|end"
+                            android:layout_margin="8dp"
+                            app:icon="@drawable/ic_close"
+                            app:iconTint="?attr/colorOnPrimaryContainer"
+                            app:iconGravity="textStart"
+                            android:insetLeft="0dp"
+                            android:insetTop="0dp"
+                            android:insetRight="0dp"
+                            android:insetBottom="0dp"
+                            app:iconPadding="0dp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            app:cornerRadius="18dp"
+                            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                            android:contentDescription="Borrar imagen" />
+                    </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Imagen 2 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/image2"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/sample_hotel_1"
+                            android:contentDescription="Imagen de hotel" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/deleteImage2"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="top|end"
+                            android:layout_margin="8dp"
+                            app:icon="@drawable/ic_close"
+                            app:iconTint="?attr/colorOnPrimaryContainer"
+                            app:iconGravity="textStart"
+                            android:insetLeft="0dp"
+                            android:insetTop="0dp"
+                            android:insetRight="0dp"
+                            android:insetBottom="0dp"
+                            app:iconPadding="0dp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            app:cornerRadius="18dp"
+                            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                            android:contentDescription="Borrar imagen" />
+                    </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Imagen 3 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/image3"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/sample_hotel_1"
+                            android:contentDescription="Imagen de hotel" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/deleteImage3"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="top|end"
+                            android:layout_margin="8dp"
+                            app:icon="@drawable/ic_close"
+                            app:iconTint="?attr/colorOnPrimaryContainer"
+                            app:iconGravity="textStart"
+                            android:insetLeft="0dp"
+                            android:insetTop="0dp"
+                            android:insetRight="0dp"
+                            android:insetBottom="0dp"
+                            app:iconPadding="0dp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            app:cornerRadius="18dp"
+                            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                            android:contentDescription="Borrar imagen" />
+                    </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Imagen 4 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/image4"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/sample_hotel_1"
+                            android:contentDescription="Imagen de hotel" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/deleteImage4"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="top|end"
+                            android:layout_margin="8dp"
+                            app:icon="@drawable/ic_close"
+                            app:iconTint="?attr/colorOnPrimaryContainer"
+                            app:iconGravity="textStart"
+                            android:insetLeft="0dp"
+                            android:insetTop="0dp"
+                            android:insetRight="0dp"
+                            android:insetBottom="0dp"
+                            app:iconPadding="0dp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            app:cornerRadius="18dp"
+                            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                            android:contentDescription="Borrar imagen" />
+                    </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </GridLayout>
+
+            <!-- Botón de agregar más fotos -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddPhotos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:text="Añadir más fotos"
+                app:icon="@drawable/ic_camera"
+                style="@style/Widget.Material3.Button.OutlinedButton" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Barra de navegación inferior -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="Cancelar"
+            style="@style/Widget.Material3.Button.OutlinedButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="Guardar"
+            app:icon="@drawable/ic_check"
+            style="@style/Widget.Material3.Button" />
+    </LinearLayout>
+
+    <!-- Estado vacío (No hay galería) - Inicialmente visible si no hay imágenes -->
+    <LinearLayout
+        android:id="@+id/emptyState"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="?attr/colorSurface"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintTop_toBottomOf="@id/sectionTitle">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No hay galería"
+            android:textAppearance="?attr/textAppearanceHeadlineMedium"
+            android:textColor="?attr/colorOnSurface" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="La galería de fotos se mostrará aquí"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,66 +1,147 @@
 package com.codebnb.stayflow.adminHotel.home;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.codebnb.stayflow.R;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link GaleriaAdminFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.codebnb.stayflow.R;
+import com.codebnb.stayflow.databinding.FragmentAdminGaleriaBinding;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 public class GaleriaAdminFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private FragmentAdminGaleriaBinding binding;
+    private boolean hasImages = false; // Estado inicial: sin imágenes
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    // Lanzador para seleccionar imágenes de la galería
+    private final ActivityResultLauncher<String> pickImages = registerForActivityResult(
+            new ActivityResultContracts.GetContent(),
+            uri -> {
+                if (uri != null) {
+                    // Aquí procesarías la imagen seleccionada
+                    // Por ahora, simplemente mostraremos la vista con imágenes
+                    hasImages = true;
+                    updateGalleryState();
+                }
+            });
 
     public GaleriaAdminFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment GaleriaAdminFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static GaleriaAdminFragment newInstance(String param1, String param2) {
-        GaleriaAdminFragment fragment = new GaleriaAdminFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+        // Constructor vacío requerido
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        binding = FragmentAdminGaleriaBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        setupListeners();
+        updateGalleryState();
+    }
+
+    private void setupListeners() {
+        // Configurar el Toolbar
+        binding.toolbar.setNavigationOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(requireView());
+            navController.navigateUp();
+        });
+
+        // Botón para agregar fotos
+        binding.btnAddPhotos.setOnClickListener(v -> {
+            pickImages.launch("image/*");
+        });
+
+        // Botones para eliminar imágenes
+        setupDeleteButtons();
+
+        // Botones de navegación inferior
+        binding.btnCancel.setOnClickListener(v -> {
+            confirmCancel();
+        });
+
+        binding.btnSave.setOnClickListener(v -> {
+            // Lógica para guardar los cambios
+            // Implementar lógica real aquí
+
+            // Mostrar confirmación
+            new MaterialAlertDialogBuilder(requireContext())
+                    .setTitle(R.string.changes_saved)
+                    .setMessage(R.string.gallery_updated_message)
+                    .setPositiveButton(R.string.ok, (dialog, which) -> {
+                        // Navegar hacia atrás cuando se guarda
+                        NavController navController = Navigation.findNavController(requireView());
+                        navController.navigateUp();
+                    })
+                    .show();
+        });
+    }
+
+    private void confirmCancel() {
+        new MaterialAlertDialogBuilder(requireContext())
+                .setTitle(R.string.confirm_cancel)
+                .setMessage(R.string.discard_changes_message)
+                .setNegativeButton(R.string.keep_editing, null)
+                .setPositiveButton(R.string.discard, (dialog, which) -> {
+                    NavController navController = Navigation.findNavController(requireView());
+                    navController.navigateUp();
+                })
+                .show();
+    }
+
+    private void setupDeleteButtons() {
+        // Configurar listeners para eliminar imágenes
+        binding.deleteImage1.setOnClickListener(v -> confirmDeleteImage(1));
+        binding.deleteImage2.setOnClickListener(v -> confirmDeleteImage(2));
+        binding.deleteImage3.setOnClickListener(v -> confirmDeleteImage(3));
+        binding.deleteImage4.setOnClickListener(v -> confirmDeleteImage(4));
+    }
+
+    private void confirmDeleteImage(int imageNumber) {
+        new MaterialAlertDialogBuilder(requireContext())
+                .setTitle(R.string.confirm_delete)
+                .setMessage(R.string.delete_image_message)
+                .setNegativeButton(R.string.cancel, null)
+                .setPositiveButton(R.string.delete, (dialog, which) -> removeImage(imageNumber))
+                .show();
+    }
+
+    private void removeImage(int imageNumber) {
+        // Aquí implementarías la lógica para eliminar una imagen específica
+        // Por ahora, simplemente verificamos si aún quedan imágenes
+
+        // Esta es una simulación - en una app real verificarías
+        // cuántas imágenes quedan después de eliminar
+        if (imageNumber == 1) {
+            // Simulamos que ya no quedan imágenes
+            hasImages = false;
+            updateGalleryState();
         }
     }
 
+    private void updateGalleryState() {
+        // Actualiza la visibilidad según si hay imágenes o no
+        binding.scrollView.setVisibility(hasImages ? View.VISIBLE : View.GONE);
+        binding.emptyState.setVisibility(hasImages ? View.GONE : View.VISIBLE);
+    }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin_galeria, container, false);
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null; // evitar memory leaks
     }
 }

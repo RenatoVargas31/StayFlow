@@ -43,11 +43,25 @@
     <fragment
         android:id="@+id/habitacionesAdminFragment"
         android:name="com.codebnb.stayflow.adminHotel.home.HabitacionesAdminFragment"
-        android:label="Habitaciones" />
+        android:label="Habitaciones">
+
+        <action
+            android:id="@+id/action_habitacionesAdminFragment_to_registroHabitacionFragment"
+            app:destination="@id/registroHabitacionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registroHabitacionFragment"
+        android:name="com.codebnb.stayflow.adminHotel.home.RegistroHabitacionFragment"
+        android:label="Registro de Habitación">
+
+        <action
+            android:id="@+id/action_registroHabitacionFragment_to_habitacionesAdminFragment"
+            app:destination="@id/habitacionesAdminFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/serviciosAdminFragment"
         android:name="com.codebnb.stayflow.adminHotel.home.ServiciosAdminFragment"
         android:label="Servicios" />
-
 </navigation>
