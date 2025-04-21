@@ -1,6 +1,7 @@
 package com.codebnb.stayflow;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +24,14 @@ public class ClienteActivity extends AppCompatActivity {
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
         NavController navController = navHostFragment.getNavController();
+        //Ocultar la BottomBar para fragments específicos
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+                    if (destination.getId() == R.id.busquedaHotelFragment) {
+                        binding.bottomNavigation.setVisibility(View.GONE);
+                    } else {
+                        binding.bottomNavigation.setVisibility(View.VISIBLE);
+                    }
+                });
         NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
     }
 }
