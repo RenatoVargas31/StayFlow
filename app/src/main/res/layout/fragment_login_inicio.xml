@@ -8,7 +8,8 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="24dp"
-    android:background="@android:color/white">
+    android:background="#FFFFFF"
+    >
 
     <!-- Ícono de perfil -->
     <com.google.android.material.imageview.ShapeableImageView

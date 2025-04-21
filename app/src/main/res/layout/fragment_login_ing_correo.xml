@@ -6,7 +6,8 @@
     android:orientation="vertical"
     android:padding="24dp"
     android:background="@android:color/white"
-    android:gravity="center_horizontal">
+    android:gravity="center"
+    android:layout_gravity="center">
 
     <!-- Título -->
     <TextView
@@ -23,7 +24,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Correo"
+        android:hint="       Correo"
         android:layout_marginBottom="32dp"
         style="@style/Widget.Material3.TextInputLayout.FilledBox"
         app:startIconDrawable="@drawable/ic_email"
@@ -39,7 +40,7 @@
     <!-- Botón -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_mandar_codigo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Mandar código"
         style="@style/Widget.Material3.Button"
@@ -47,3 +48,4 @@
         app:backgroundTint="@color/purple_700"
         android:textColor="@android:color/white" />
 </LinearLayout>
+

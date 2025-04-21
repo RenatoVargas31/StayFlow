@@ -1,22 +1,24 @@
-package com.codebnb.stayflow;
+package com.codebnb.stayflow.login.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.codebnb.stayflow.R;
+import com.codebnb.stayflow.driver.home.DriverInicioFragment;
 import com.google.android.material.button.MaterialButton;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link LoginInicioFragment#newInstance} factory method to
+ * Use the {@link LoginCargarFotoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class LoginInicioFragment extends Fragment {
+public class LoginCargarFotoFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,7 +29,7 @@ public class LoginInicioFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public LoginInicioFragment() {
+    public LoginCargarFotoFragment() {
         // Required empty public constructor
     }
 
@@ -37,11 +39,11 @@ public class LoginInicioFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment LoginInicioFragment.
+     * @return A new instance of fragment LoginCargarFotoFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static LoginInicioFragment newInstance(String param1, String param2) {
-        LoginInicioFragment fragment = new LoginInicioFragment();
+    public static LoginCargarFotoFragment newInstance(String param1, String param2) {
+        LoginCargarFotoFragment fragment = new LoginCargarFotoFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,31 +63,16 @@ public class LoginInicioFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_login_inicio, container, false);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_login_cargar_foto, container, false);
 
-        MaterialButton btnIniciarSesion = view.findViewById(R.id.btn_iniciar_sesion);
-        MaterialButton btnRegistrar = view.findViewById(R.id.btn_registrar);
+        MaterialButton btnOmitirFinalizar = view.findViewById(R.id.btn_omitir_finalizar);
 
-
-
-        btnIniciarSesion.setOnClickListener(v -> {
-            FragmentTransaction transaction = requireActivity()
-                    .getSupportFragmentManager()
-                    .beginTransaction();
-            transaction.replace(R.id.login_fragment_container, new LoginSesionFragment());
-            transaction.addToBackStack(null); // Permite regresar con el botón "atrás"
-            transaction.commit();
+        btnOmitirFinalizar.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), DriverInicioFragment.class);
+            startActivity(intent);
+            requireActivity().finish(); // Para cerrar la pantalla de login si no deseas volver atrás
         });
-
-        btnRegistrar.setOnClickListener(v -> {
-            FragmentTransaction transaction = requireActivity()
-                    .getSupportFragmentManager()
-                    .beginTransaction();
-            transaction.replace(R.id.login_fragment_container, new LoginRegisterFragment());
-            transaction.addToBackStack(null);
-            transaction.commit();
-        });
-
 
         return view;
     }

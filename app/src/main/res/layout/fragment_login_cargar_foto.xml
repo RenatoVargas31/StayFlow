@@ -31,4 +31,15 @@
         app:cornerRadius="24dp"
         app:backgroundTint="@color/purple_700"
         android:textColor="@android:color/white" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_omitir_finalizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Omitir y finalizar"
+        style="@style/Widget.Material3.Button"
+        app:cornerRadius="24dp"
+        app:backgroundTint="@color/purple_700"
+        android:textColor="@android:color/white" />
+
 </LinearLayout>
