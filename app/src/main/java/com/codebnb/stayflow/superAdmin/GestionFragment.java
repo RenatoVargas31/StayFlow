@@ -150,8 +150,20 @@ public class GestionFragment extends Fragment implements UserAdapter.OnUserClick
     @Override
     public void onDetailsClick(int position) {
         User user = userList.get(position);
-        Toast.makeText(getContext(), "Detalles de " + user.getName(), Toast.LENGTH_SHORT).show();
-        // Aquí puedes implementar la navegación a la pantalla de detalles
+
+        // Crear instancia del fragmento de detalles con los datos del usuario
+        UserDetailFragment detailFragment = UserDetailFragment.newInstance(
+                user.getName(),
+                user.getRole(),
+                user.getRoleDescription(),
+                user.isEnabled()
+        );
+
+        // Realizar la transacción del fragmento
+        getParentFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, detailFragment)
+                .addToBackStack(null)  // Permite volver atrás con el botón back
+                .commit();
     }
 
     @Override
