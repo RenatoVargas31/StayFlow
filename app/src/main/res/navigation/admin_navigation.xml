@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/adminInicioFragment">
+
+    <!-- Fragments del menú inferior -->
+    <fragment
+        android:id="@+id/adminInicioFragment"
+        android:name="com.codebnb.stayflow.adminHotel.home.AdminInicioFragment"
+        android:label="Inicio" />
+
+    <fragment
+        android:id="@+id/reportesAdminFragment"
+        android:name="com.codebnb.stayflow.adminHotel.ReporteAdminFragment"
+        android:label="Reportes" />
+
+    <fragment
+        android:id="@+id/huespedAdminFragment"
+        android:name="com.codebnb.stayflow.adminHotel.HuespedAdminFragment"
+        android:label="Huésped" />
+
+    <fragment
+        android:id="@+id/chatAdminFragment"
+        android:name="com.codebnb.stayflow.adminHotel.ChatAdminFragment"
+        android:label="Mensajería" />
+
+    <fragment
+        android:id="@+id/perfilAdminFragment"
+        android:name="com.codebnb.stayflow.adminHotel.PerfilAdminFragment"
+        android:label="Perfil" />
+
+    <!-- Fragments internos desde botones -->
+    <fragment
+        android:id="@+id/ubicacionAdminFragment"
+        android:name="com.codebnb.stayflow.adminHotel.home.UbicacionAdminFragment"
+        android:label="Ubicación" />
+
+    <fragment
+        android:id="@+id/galeriaAdminFragment"
+        android:name="com.codebnb.stayflow.adminHotel.home.GaleriaAdminFragment"
+        android:label="Galería" />
+
+    <fragment
+        android:id="@+id/habitacionesAdminFragment"
+        android:name="com.codebnb.stayflow.adminHotel.home.HabitacionesAdminFragment"
+        android:label="Habitaciones" />
+
+    <fragment
+        android:id="@+id/serviciosAdminFragment"
+        android:name="com.codebnb.stayflow.adminHotel.home.ServiciosAdminFragment"
+        android:label="Servicios" />
+
+</navigation>
