@@ -30,7 +30,7 @@ public class AdminInicioFragment extends Fragment {
         // Bindings visuales (ya los tienes)
         View ubicacionView = root.findViewById(R.id.includeBtnUbicacion);
         CardAdminBotonHotelBinding ubicacionBinding = CardAdminBotonHotelBinding.bind(ubicacionView);
-        ubicacionBinding.iconoBoton.setImageResource(R.drawable.ic_location);
+        ubicacionBinding.iconoBoton.setImageResource(R.drawable.ic_map);
         ubicacionBinding.textoBoton.setText("Ubicación");
 
         View galeriaView = root.findViewById(R.id.includeBtnGaleria);
@@ -48,7 +48,6 @@ public class AdminInicioFragment extends Fragment {
         serviciosBinding.iconoBoton.setImageResource(R.drawable.ic_services);
         serviciosBinding.textoBoton.setText("Servicios");
 
-        // Navegación con Navigation Component - CORRECCIÓN AQUÍ
         NavController navController = NavHostFragment.findNavController(this);
 
         ubicacionBinding.getRoot().setOnClickListener(v -> navController.navigate(R.id.ubicacionAdminFragment));
