@@ -1,14 +1,365 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".adminHotel.ReporteAdminFragment">
+    android:background="?attr/colorSurfaceContainerLow"
+    android:fillViewport="true">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:padding="16dp">
 
-</FrameLayout>
+        <!-- Título principal centrado -->
+        <TextView
+            android:id="@+id/tvTitleReportes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reporte de ventas"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Grupo de filtros (Diario, Mensual, Anual) centrado -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupFiltros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:singleSelection="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitleReportes">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipDiario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diario"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:checked="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMensual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mensual"
+                style="@style/Widget.Material3.Chip.Filter" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAnual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anual"
+                style="@style/Widget.Material3.Chip.Filter" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Tarjeta para Ventas por servicio -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardVentasPorServicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:layout_constraintTop_toBottomOf="@id/chipGroupFiltros">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvTituloServicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ventas por servicio"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Lavandería -->
+                <TextView
+                    android:id="@+id/tvLavanderia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lavandería"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTituloServicio" />
+
+                <ProgressBar
+                    android:id="@+id/progressLavanderia"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:progress="30"
+                    android:progressTint="?attr/colorTertiary"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintStart_toEndOf="@id/tvLavanderia"
+                    app:layout_constraintEnd_toStartOf="@id/tvMontoLavanderia"
+                    app:layout_constraintTop_toTopOf="@id/tvLavanderia"
+                    app:layout_constraintBottom_toBottomOf="@id/tvLavanderia" />
+
+                <TextView
+                    android:id="@+id/tvMontoLavanderia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="S/.300"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvLavanderia"
+                    app:layout_constraintBottom_toBottomOf="@id/tvLavanderia" />
+
+                <!-- Desayuno -->
+                <TextView
+                    android:id="@+id/tvDesayuno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Desayuno"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLavanderia" />
+
+                <ProgressBar
+                    android:id="@+id/progressDesayuno"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:progress="55"
+                    android:progressTint="?attr/colorTertiary"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintStart_toEndOf="@id/tvDesayuno"
+                    app:layout_constraintEnd_toStartOf="@id/tvMontoDesayuno"
+                    app:layout_constraintTop_toTopOf="@id/tvDesayuno"
+                    app:layout_constraintBottom_toBottomOf="@id/tvDesayuno" />
+
+                <TextView
+                    android:id="@+id/tvMontoDesayuno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="S/.550"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvDesayuno"
+                    app:layout_constraintBottom_toBottomOf="@id/tvDesayuno" />
+
+                <!-- Spa -->
+                <TextView
+                    android:id="@+id/tvSpa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Spa"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvDesayuno" />
+
+                <ProgressBar
+                    android:id="@+id/progressSpa"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:progress="70"
+                    android:progressTint="?attr/colorTertiary"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintStart_toEndOf="@id/tvSpa"
+                    app:layout_constraintEnd_toStartOf="@id/tvMontoSpa"
+                    app:layout_constraintTop_toTopOf="@id/tvSpa"
+                    app:layout_constraintBottom_toBottomOf="@id/tvSpa" />
+
+                <TextView
+                    android:id="@+id/tvMontoSpa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="S/.980"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvSpa"
+                    app:layout_constraintBottom_toBottomOf="@id/tvSpa" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botón Ver reporte completo (Servicios) con fondo redondeado -->
+        <!-- Botón Ver reporte completo (Servicios) con fondo redondeado inline -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVerReporteServicios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver reporte completo"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorPrimary"
+            android:layout_marginTop="8dp"
+            app:icon="@drawable/ic_folder"
+            app:iconTint="?attr/colorPrimary"
+            app:iconGravity="start"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            app:cornerRadius="24dp"
+            app:strokeWidth="0dp"
+            app:backgroundTint="?attr/colorSurfaceContainerLow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardVentasPorServicio" />
+
+        <!-- Tarjeta para Ventas por usuario -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardVentasPorUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:layout_constraintTop_toBottomOf="@id/btnVerReporteServicios">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvTituloUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ventas por usuario"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Juan Pérez -->
+                <TextView
+                    android:id="@+id/tvJuanPerez"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Juan Pérez"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTituloUsuario" />
+
+                <ProgressBar
+                    android:id="@+id/progressJuanPerez"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:progress="80"
+                    android:progressTint="?attr/colorTertiary"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintStart_toEndOf="@id/tvJuanPerez"
+                    app:layout_constraintEnd_toStartOf="@id/tvMontoJuanPerez"
+                    app:layout_constraintTop_toTopOf="@id/tvJuanPerez"
+                    app:layout_constraintBottom_toBottomOf="@id/tvJuanPerez" />
+
+                <TextView
+                    android:id="@+id/tvMontoJuanPerez"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="S/.1000"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvJuanPerez"
+                    app:layout_constraintBottom_toBottomOf="@id/tvJuanPerez" />
+
+                <!-- Ana Torres -->
+                <TextView
+                    android:id="@+id/tvAnaTorres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ana Torres"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvJuanPerez" />
+
+                <ProgressBar
+                    android:id="@+id/progressAnaTorres"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:progress="65"
+                    android:progressTint="?attr/colorTertiary"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintStart_toEndOf="@id/tvAnaTorres"
+                    app:layout_constraintEnd_toStartOf="@id/tvMontoAnaTorres"
+                    app:layout_constraintTop_toTopOf="@id/tvAnaTorres"
+                    app:layout_constraintBottom_toBottomOf="@id/tvAnaTorres" />
+
+                <TextView
+                    android:id="@+id/tvMontoAnaTorres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="S/.800"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvAnaTorres"
+                    app:layout_constraintBottom_toBottomOf="@id/tvAnaTorres" />
+
+                <!-- Luis Gómez -->
+                <TextView
+                    android:id="@+id/tvLuisGomez"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Luis Gómez"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAnaTorres" />
+
+                <ProgressBar
+                    android:id="@+id/progressLuisGomez"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:progress="20"
+                    android:progressTint="?attr/colorTertiary"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintStart_toEndOf="@id/tvLuisGomez"
+                    app:layout_constraintEnd_toStartOf="@id/tvMontoLuisGomez"
+                    app:layout_constraintTop_toTopOf="@id/tvLuisGomez"
+                    app:layout_constraintBottom_toBottomOf="@id/tvLuisGomez" />
+
+                <TextView
+                    android:id="@+id/tvMontoLuisGomez"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="S/.200"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvLuisGomez"
+                    app:layout_constraintBottom_toBottomOf="@id/tvLuisGomez" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botón Ver reporte completo (Usuarios) con fondo redondeado inline -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVerReporteUsuarios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver reporte completo"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorPrimary"
+            android:layout_marginTop="8dp"
+            app:icon="@drawable/ic_folder"
+            app:iconTint="?attr/colorPrimary"
+            app:iconGravity="start"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            app:cornerRadius="24dp"
+            app:strokeWidth="0dp"
+            app:backgroundTint="?attr/colorSurfaceContainerLow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardVentasPorUsuario" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

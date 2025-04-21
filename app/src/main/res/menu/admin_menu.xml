@@ -1,37 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    >
-
 
     <!-- Menú del Administrador -->
     <item
-        android:id="@+id/nav_inicio"
+        android:id="@+id/adminInicioFragment"
         android:title="Inicio"
         android:icon="@drawable/ic_home"
         app:showAsAction="always"
         />
     <item
-        android:id="@+id/nav_reportes"
+        android:id="@+id/reportesAdminFragment"
         android:title="Reportes"
         android:icon="@drawable/ic_reporte"
         app:showAsAction="always"
         />
     <item
-        android:id="@+id/nav_huesped"
+        android:id="@+id/huespedAdminFragment"
         android:title="Huésped"
         android:icon="@drawable/ic_huesped"
         app:showAsAction="always"
         />
     <item
-        android:id="@+id/nav_chat"
+        android:id="@+id/chatAdminFragment"
         android:title="Mensajería"
         android:icon="@drawable/ic_chat"
         app:showAsAction="always"
         />
-
     <item
-        android:id="@+id/nav_perfil"
+        android:id="@+id/perfilAdminFragment"
         android:title="Perfil"
         android:icon="@drawable/ic_perfil"
         app:showAsAction="always"
