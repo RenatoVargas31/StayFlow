@@ -7,6 +7,7 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.codebnb.stayflow.superAdmin.*;
 
@@ -18,6 +19,16 @@ public class SuperAdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.superadmin_activity);
+        MaterialToolbar toolbar = findViewById(R.id.topAppBar);
+        toolbar.setOnMenuItemClickListener(item -> {
+            if (item.getItemId() == R.id.action_logs) {
+                // Cargar fragmento de logs
+                loadFragment(new LogsFragment()); // Cambia esto si tienes otra forma de ver logs
+                return true;
+            }
+            return false;
+        });
+
 
         bottomNav = findViewById(R.id.bottom_navigation);
 
