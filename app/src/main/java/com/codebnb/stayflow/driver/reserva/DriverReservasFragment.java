@@ -28,6 +28,7 @@ public class DriverReservasFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflar el layout del fragmento
         return inflater.inflate(R.layout.fragment_driver_reservas, container, false);
+
     }
 
     @Override
@@ -54,8 +55,5 @@ public class DriverReservasFragment extends Fragment {
                     break;
             }
         }).attach();
-
-
     }
-
 }

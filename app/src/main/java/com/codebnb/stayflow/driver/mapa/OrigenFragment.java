@@ -1,5 +1,6 @@
 package com.codebnb.stayflow.driver.mapa;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,7 @@ public class OrigenFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_origen, container, false);
+
     }
 
     @Override
@@ -45,6 +47,11 @@ public class OrigenFragment extends Fragment {
         btnIniciarViaje = view.findViewById(R.id.btn_iniciar_viaje);
         btnContactar = view.findViewById(R.id.btn_contactar);
 
+        btnContactar.setOnClickListener(v -> {
+            // Crear un Intent para abrir la actividad ChatActivity
+            Intent intent = new Intent(getActivity(), ChatActivity.class);
 
+            startActivity(intent);
+        });
     }
 }

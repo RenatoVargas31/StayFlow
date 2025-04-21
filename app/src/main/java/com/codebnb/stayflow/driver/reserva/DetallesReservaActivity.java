@@ -41,12 +41,6 @@ public class DetallesReservaActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-        /*
-        btnVerMapa = findViewById(R.id.btn_ver_mapa);
-        btnVerMapa.setOnClickListener(v -> {
-            Intent intent = new Intent(DetallesReservaActivity.this, DriverMapaFragment.class);
-            startActivity(intent);
-        });*/
 
     }
 

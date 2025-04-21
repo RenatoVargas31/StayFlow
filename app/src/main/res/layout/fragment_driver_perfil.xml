@@ -58,7 +58,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/christopher_campbell_rdeovte7vos_unsplash"
+                        android:src="@drawable/vicky_hladynets_c8ta0gwpbqg_unsplash"
                         app:shapeAppearanceOverlay="@style/CircleImageView"
                         app:strokeWidth="2dp"
                         app:strokeColor="#EEEEEE" />
