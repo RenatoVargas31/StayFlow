@@ -11,10 +11,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toolbar;
 
-import com.codebnb.stayflow.LoginActivity;
 import com.codebnb.stayflow.R;
 
 
@@ -36,6 +34,13 @@ public class DriverPerfilFragment extends Fragment {
         //Buscamos el contenedor del vehiculo
         ConstraintLayout layoutVehicleModel = view.findViewById(R.id.layout_vehicle_model);
 
+        //Buscamos el contenedor del correo
+        ConstraintLayout layoutEmail = view.findViewById(R.id.layout_correo);
+
+        //Buscamos el contenedor de la tarjeta de credito
+        ConstraintLayout layoutCreditCard = view.findViewById(R.id.layout_tarjetaCredit);
+
+
 
         layoutVehicleModel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +50,20 @@ public class DriverPerfilFragment extends Fragment {
             }
         });
 
+        layoutCreditCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), TarjetaCreditoActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        layoutEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CorreoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -6,16 +6,35 @@
     android:background="@color/white"
     tools:context=".driver.perfil.DriverPerfilFragment">
 
+    <!-- Barra superior -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:liftOnScroll="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:titleCentered="true"
+            app:titleTextColor="@color/md_theme_primary"
+            app:menu="@menu/profile_menu"
+            app:layout_scrollFlags="scroll|enterAlways|snap" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
-
             <!-- Profile Header -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_profile_header"
@@ -26,14 +45,12 @@
                 app:cardBackgroundColor="@color/md_theme_outlineVariant"
                 android:layout_marginHorizontal="1dp"
                 android:layout_marginBottom="16dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center"
                     android:padding="24dp">
-
                     <!-- Foto de perfil con forma circular -->
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/iv_profile_picture"
@@ -44,7 +61,6 @@
                         app:shapeAppearanceOverlay="@style/CircleImageView"
                         app:strokeWidth="2dp"
                         app:strokeColor="#EEEEEE" />
-
                     <!-- Información de perfil -->
                     <TextView
                         android:id="@+id/tv_nombre_taxista"
@@ -62,7 +78,6 @@
                         android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textColor="#757575"
                         android:layout_marginTop="2dp" />
-
                     <!-- Performance Metrics -->
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -160,7 +175,6 @@
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
-
             <!-- Información del vehículo -->
             <TextView
                 android:id="@+id/tv_label_vehiculo"
@@ -171,7 +185,6 @@
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:layout_marginBottom="8dp" />
-
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_vehicle_info"
                 android:layout_width="match_parent"
@@ -180,12 +193,10 @@
                 app:cardElevation="6dp"
                 app:cardBackgroundColor="@color/white"
                 android:layout_marginBottom="16dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
                     <!-- Vehicle Model -->
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/layout_vehicle_model"
@@ -247,19 +258,16 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
-
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="#F0F0F0" />
-
                     <!-- SOAT Information -->
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/layout_soat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="16dp">
-
                         <ImageView
                             android:id="@+id/iv_soat_icon"
                             android:layout_width="40dp"
@@ -271,7 +279,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent" />
-
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -281,7 +288,6 @@
                             app:layout_constraintTop_toTopOf="@id/iv_soat_icon"
                             app:layout_constraintBottom_toBottomOf="@id/iv_soat_icon"
                             app:layout_constraintEnd_toStartOf="@id/tv_soat_exp">
-
                             <TextView
                                 android:id="@+id/tv_soat_label"
                                 android:layout_width="wrap_content"
@@ -290,7 +296,6 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="@android:color/black" />
-
                             <TextView
                                 android:id="@+id/tv_soat_numero"
                                 android:layout_width="wrap_content"
@@ -299,7 +304,6 @@
                                 android:textSize="14sp"
                                 android:textColor="#757575" />
                         </LinearLayout>
-
                         <TextView
                             android:id="@+id/tv_soat_exp"
                             android:layout_width="wrap_content"
@@ -312,15 +316,12 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
-
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="#F0F0F0" />
-
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
-
             <!-- Información de la cuenta -->
             <TextView
                 android:id="@+id/tv_label_cuenta"
@@ -331,7 +332,6 @@
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:layout_marginBottom="8dp" />
-
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_account_info"
                 android:layout_width="match_parent"
@@ -340,12 +340,10 @@
                 app:cardElevation="6dp"
                 app:cardBackgroundColor="@color/white"
                 android:layout_marginBottom="16dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
                     <!-- correo -->
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/layout_correo"
@@ -355,7 +353,6 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:background="?attr/selectableItemBackground">
-
                         <ImageView
                             android:id="@+id/iv_correo_icon"
                             android:layout_width="40dp"
@@ -367,7 +364,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent" />
-
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -392,14 +388,11 @@
                                 android:textSize="14sp"
                                 android:textColor="#757575" />
                         </LinearLayout>
-
                     </androidx.constraintlayout.widget.ConstraintLayout>
-
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="#F0F0F0" />
-
                     <!-- Tarjeta de credito -->
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/layout_tarjetaCredit"
@@ -409,7 +402,6 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:background="?attr/selectableItemBackground">
-
                         <ImageView
                             android:id="@+id/iv_tarjetaCredit"
                             android:layout_width="40dp"
@@ -421,7 +413,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent" />
-
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -446,20 +437,9 @@
                                 android:textSize="14sp"
                                 android:textColor="#757575" />
                         </LinearLayout>
-
                     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
                 </LinearLayout>
-
-
             </com.google.android.material.card.MaterialCardView>
-
-
-
-
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
