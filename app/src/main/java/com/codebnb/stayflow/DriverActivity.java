@@ -1,4 +1,4 @@
-package com.codebnb.stayflow.driver;
+package com.codebnb.stayflow;
 
 import android.os.Bundle;
 
@@ -11,7 +11,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
-import com.codebnb.stayflow.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DriverActivity extends AppCompatActivity {

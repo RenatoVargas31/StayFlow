@@ -1,4 +1,4 @@
-package com.codebnb.stayflow.login;
+package com.codebnb.stayflow;
 
 import android.os.Bundle;
 
@@ -8,7 +8,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.codebnb.stayflow.R;
 import com.codebnb.stayflow.login.fragments.LoginInicioFragment;
 
 public class LoginActivity extends AppCompatActivity {
