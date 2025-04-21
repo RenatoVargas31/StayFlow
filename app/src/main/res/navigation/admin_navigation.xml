@@ -40,11 +40,11 @@
         android:name="com.codebnb.stayflow.adminHotel.home.GaleriaAdminFragment"
         android:label="Galería" />
 
+    <!-- Habitaciones -->
     <fragment
         android:id="@+id/habitacionesAdminFragment"
         android:name="com.codebnb.stayflow.adminHotel.home.HabitacionesAdminFragment"
         android:label="Habitaciones">
-
         <action
             android:id="@+id/action_habitacionesAdminFragment_to_registroHabitacionFragment"
             app:destination="@id/registroHabitacionFragment" />
@@ -54,14 +54,28 @@
         android:id="@+id/registroHabitacionFragment"
         android:name="com.codebnb.stayflow.adminHotel.home.RegistroHabitacionFragment"
         android:label="Registro de Habitación">
-
         <action
             android:id="@+id/action_registroHabitacionFragment_to_habitacionesAdminFragment"
             app:destination="@id/habitacionesAdminFragment" />
     </fragment>
 
+    <!-- Servicios -->
     <fragment
         android:id="@+id/serviciosAdminFragment"
         android:name="com.codebnb.stayflow.adminHotel.home.ServiciosAdminFragment"
-        android:label="Servicios" />
+        android:label="Servicios">
+        <action
+            android:id="@+id/action_serviciosAdminFragment_to_registroServicioFragment"
+            app:destination="@id/registroServicioFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registroServicioFragment"
+        android:name="com.codebnb.stayflow.adminHotel.home.RegistroServicioFragment"
+        android:label="Registro de Servicio">
+        <action
+            android:id="@+id/action_registroServicioFragment_to_serviciosAdminFragment"
+            app:destination="@id/serviciosAdminFragment" />
+    </fragment>
+
 </navigation>

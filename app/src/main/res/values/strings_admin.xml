@@ -65,4 +65,52 @@
     <string name="ok">Aceptar</string>
     <string name="validation_error">Error de validación</string>
     <string name="fill_required_fields">Por favor, complete todos los campos requeridos.</string>
+
+
+    <!-- Servicios -->
+    <string name="service_management">Gestión de servicios</string>
+    <string name="service_management_description">Desde aquí puedes añadir, editar o eliminar servicios ofrecidos por el hotel.</string>
+    <string name="promo_text_title">Monto mínimo para servicio gratuito de taxi al aeropuerto</string>
+    <string name="promo_text_content">Por favor, ingresa el monto mínimo para habilitar el servicio gratuito.</string>
+    <string name="edit_promo_text">Editar texto promocional</string>
+    <string name="promo_text_hint">Ejemplo: Aplica para consumos mayores a S/ 100</string>
+    <string name="cleaning_service">Servicio de limpieza</string>
+    <string name="home_cleaning_service">Home cleaning service</string>
+    <string name="service_free">Servicio gratuito</string>
+    <string name="add_service">Añadir servicio</string>
+    <string name="edit">Editar</string>
+    <string name="no_services">No hay servicios registrados</string>
+    <string name="services_will_appear_here">Tus servicios aparecerán aquí.</string>
+    <string name="add_new_service">Registre un nuevo servicio</string>
+    <string name="service_name">Nombre del servicio</string>
+    <string name="service_description">Descripción</string>
+    <string name="service_price">Precio (soles)</string>
+    <string name="free_service">Gratuito</string>
+    <string name="tap_to_select_image">Toca para seleccionar imagen</string>
+    <string name="add_image">Añadir imagen</string>
+    <string name="service_image_preview">Vista previa del servicio</string>
+    <string name="save_promo_text">Guardar texto promocional</string>
+
+    <!-- Registro de Servicio -->
+    <string name="enter_service_name_hint">Ingresa el nombre del servicio</string>
+    <string name="enter_service_description_hint">Ingresa una breve descripción del servicio</string>
+    <string name="optional_price_hint">Ejemplo: 20.00</string>
+    <string name="select_image">Seleccionar imagen</string>
+    <string name="back">Atrás</string>
+    <!-- Formulario de servicio -->
+    <string name="description">Descripción</string>
+    <string name="price_label">Precio (soles)</string>
+    <string name="image">Imagen</string>
+
+    <!-- Ya están algunos, pero aquí están otros que se usan también -->
+    <string name="paid_service">Servicio con costo</string>
+    <string name="service_added_success">El servicio ha sido registrado correctamente.</string>
+    <string name="service_deleted">Servicio eliminado</string>
+    <string name="service_deleted_success">El servicio %s ha sido eliminado correctamente.</string>
+    <string name="confirm_delete_service">¿Eliminar servicio?</string>
+    <string name="delete_service_confirmation">¿Deseas eliminar el servicio %s? Esta acción no se puede deshacer.</string>
+    <string name="edit_service">Editar servicio</string>
+    <string name="validation_service_error">Complete nombre y descripción del servicio</string>
+
+
 </resources>

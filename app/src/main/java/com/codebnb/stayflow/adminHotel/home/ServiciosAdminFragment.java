@@ -1,66 +1,67 @@
 package com.codebnb.stayflow.adminHotel.home;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.codebnb.stayflow.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ServiciosAdminFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.codebnb.stayflow.R;
+import com.codebnb.stayflow.databinding.FragmentAdminServiciosBinding;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 public class ServiciosAdminFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private FragmentAdminServiciosBinding binding;
+    private boolean serviciosVisibles = true;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    public ServiciosAdminFragment() {}
 
-    public ServiciosAdminFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ServiciosAdminFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ServiciosAdminFragment newInstance(String param1, String param2) {
-        ServiciosAdminFragment fragment = new ServiciosAdminFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentAdminServiciosBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        binding.toolbar.setNavigationOnClickListener(v -> Navigation.findNavController(v).navigateUp());
+
+        binding.btnAddService.setOnClickListener(v ->
+                Navigation.findNavController(v).navigate(R.id.action_serviciosAdminFragment_to_registroServicioFragment));
+
+        binding.btnEditPromoText.setOnClickListener(v ->
+                new MaterialAlertDialogBuilder(requireContext())
+                        .setTitle("Editar texto promocional")
+                        .setMessage("Aquí podrías navegar a un fragmento para editarlo.")
+                        .setPositiveButton("OK", null)
+                        .show()
+        );
+
+        actualizarEstadoServicios();
+
+
+    }
+
+    private void actualizarEstadoServicios() {
+        View scrollView = binding.getRoot().findViewById(R.id.scrollViewServices);
+        View emptyState = binding.getRoot().findViewById(R.id.emptyState);
+
+        if (scrollView != null && emptyState != null) {
+            scrollView.setVisibility(serviciosVisibles ? View.VISIBLE : View.GONE);
+            emptyState.setVisibility(serviciosVisibles ? View.GONE : View.VISIBLE);
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin_servicios, container, false);
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }
