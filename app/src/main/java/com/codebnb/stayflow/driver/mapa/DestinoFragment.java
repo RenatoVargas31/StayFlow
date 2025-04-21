@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.codebnb.stayflow.R;
 
-public class DestinoFragment extends Fragment {
+public class  DestinoFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
