@@ -29,7 +29,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginEnd="12dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="0dp"
                 android:clickable="true"
                 android:focusable="true"
                 app:cardElevation="6dp"
@@ -40,6 +40,7 @@
                 app:rippleColor="?attr/colorControlHighlight">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/solicitud1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp">
@@ -113,27 +114,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/iv_hotel1_icon" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_activo1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:minWidth="0dp"
-                        android:minHeight="32dp"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:text="Ver"
-                        app:icon="@drawable/ic_ver"
-                        android:textColor="@android:color/white"
-                        android:textSize="10sp"
-                        android:textStyle="bold"
-                        app:backgroundTint="@color/md_theme_primary"
-                        app:cornerRadius="16dp"
-                        app:iconPadding="4dp"
-                        app:iconTint="@android:color/white"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/iv_hotel1_icon" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -145,7 +125,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginEnd="12dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="0dp"
                 android:clickable="true"
                 android:focusable="true"
                 app:cardElevation="6dp"
@@ -231,27 +211,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/iv_hotel2_icon" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_activo2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:minWidth="0dp"
-                        android:minHeight="32dp"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:text="Ver"
-                        android:textColor="@android:color/white"
-                        android:textSize="10sp"
-                        android:textStyle="bold"
-                        app:backgroundTint="@color/md_theme_primary"
-                        app:cornerRadius="16dp"
-                        app:icon="@drawable/ic_ver"
-                        app:iconPadding="4dp"
-                        app:iconTint="@android:color/white"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/iv_hotel2_icon" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
             <!-- Reserva 3 -->
@@ -262,7 +221,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginEnd="12dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="0dp"
                 android:clickable="true"
                 android:focusable="true"
                 app:cardElevation="6dp"
@@ -346,27 +305,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/iv_hotel3_icon" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_activo3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:minWidth="0dp"
-                        android:minHeight="32dp"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:text="Ver"
-                        android:textColor="@android:color/white"
-                        android:textSize="10sp"
-                        android:textStyle="bold"
-                        app:backgroundTint="@color/md_theme_primary"
-                        app:cornerRadius="16dp"
-                        app:icon="@drawable/ic_ver"
-                        app:iconPadding="4dp"
-                        app:iconTint="@android:color/white"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/iv_hotel3_icon" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
             <!-- Reserva 4 -->
@@ -460,27 +398,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/iv_hotel4_icon" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_activo4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:minWidth="0dp"
-                        android:minHeight="32dp"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:text="Ver"
-                        android:textColor="@android:color/white"
-                        android:textSize="10sp"
-                        android:textStyle="bold"
-                        app:backgroundTint="@color/md_theme_primary"
-                        app:cornerRadius="16dp"
-                        app:icon="@drawable/ic_ver"
-                        app:iconPadding="4dp"
-                        app:iconTint="@android:color/white"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/iv_hotel4_icon" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 

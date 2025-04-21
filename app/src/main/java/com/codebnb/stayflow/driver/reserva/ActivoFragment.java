@@ -2,6 +2,7 @@ package com.codebnb.stayflow.driver.reserva;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
@@ -50,7 +51,10 @@ public class ActivoFragment extends Fragment {
         cardReserva4 = view.findViewById(R.id.card_reserva4);
 
         // Inicializar referencias a los botoness de las tarjetas
-        btnActivo1 = view.findViewById(R.id.btn_activo1);
+
+
+        //Inicializar
+        ConstraintLayout solicitud1 = view.findViewById(R.id.solicitud1);
 
         // Inicializar referencias a los textos de la tarjeta 1
         tvNombre1 = view.findViewById(R.id.tv_hotel1_nombre);
@@ -63,7 +67,8 @@ public class ActivoFragment extends Fragment {
 
         // Ver detalles de reserva
 
-        btnActivo1.setOnClickListener(new View.OnClickListener() {
+
+        solicitud1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Navegar a DetallesReservaActivity

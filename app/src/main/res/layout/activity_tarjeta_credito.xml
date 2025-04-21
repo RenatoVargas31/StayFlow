@@ -23,6 +23,7 @@
         android:textColor="#757575"
         android:textSize="12sp" />
 
+
     <!-- Contenido principal -->
     <ScrollView
         android:layout_width="0dp"
@@ -63,7 +64,7 @@
                         android:id="@+id/iv_viaje_icon"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/ic_credit_card"
+                        android:src="@drawable/ic_exclamation"
                         app:tint="@color/md_theme_primary"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -74,7 +75,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
-                        android:text="Tarjeta de crédito"
+                        android:text="Métodos de Pago"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@color/md_theme_primary"
@@ -100,7 +101,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="Gestiona tus tarjetas para recibir los pagos seguros a través de la aplicación. Puedes añadir, editar o eliminar tus métodos de pago."
+                        android:text="Gestiona tus tarjetas para recibir los pagos seguros a través de la aplicación."
                         android:textSize="14sp"
                         android:textColor="#757575"
                         app:layout_constraintTop_toBottomOf="@id/divider"
@@ -110,7 +111,6 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Tarjeta de crédito actual (diseño visual como tarjeta real) -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_credit_card"
                 android:layout_width="match_parent"
@@ -219,14 +219,46 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <TextView
+                    <!-- Encabezado con certificado -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Detalles de la tarjeta"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/black"
-                        android:layout_marginBottom="16dp"/>
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Detalles de la tarjeta"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="@color/md_theme_tertiaryFixedDim"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="4dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/ic_estado"
+                                app:tint="@color/md_theme_tertiaryFixed_highContrast"
+                                android:layout_marginEnd="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Seleccionado"
+                                android:textSize="12sp"
+                                app:tint="@color/md_theme_tertiaryFixed_highContrast" />
+                        </LinearLayout>
+                    </LinearLayout>
 
                     <!-- Tipo de tarjeta -->
                     <LinearLayout
@@ -319,58 +351,11 @@
                             android:textSize="14sp"
                             android:textColor="@android:color/black"/>
                     </LinearLayout>
-
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Botones de acción -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="24dp">
 
-                <!-- Botón de editar tarjeta -->
-                <Button
-                    android:id="@+id/btn_edit_card"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Editar tarjeta"
-                    android:textAllCaps="false"
-                    android:layout_marginBottom="8dp"
-                    app:icon="@drawable/ic_edit"
-                    app:iconGravity="textStart"
-                    style="@style/Widget.Material3.Button" />
 
-                <!-- Botón de añadir nueva tarjeta -->
-                <Button
-                    android:id="@+id/btn_add_card"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Añadir nueva tarjeta"
-                    android:textAllCaps="false"
-                    android:layout_marginBottom="8dp"
-                    app:icon="@drawable/ic_add"
-                    app:iconGravity="textStart"
-                    style="@style/Widget.Material3.Button.OutlinedButton" />
-
-                <!-- Botón de eliminar tarjeta -->
-                <Button
-                    android:id="@+id/btn_remove_card"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Eliminar tarjeta"
-                    android:textAllCaps="false"
-                    android:textColor="@color/md_theme_error"
-                    app:icon="@drawable/ic_delete"
-                    app:iconGravity="textStart"
-                    app:iconTint="@color/md_theme_error"
-                    app:strokeColor="@color/md_theme_error"
-                    style="@style/Widget.Material3.Button.OutlinedButton" />
-
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

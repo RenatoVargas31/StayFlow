@@ -3,6 +3,7 @@ package com.codebnb.stayflow.driver.reserva;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -57,9 +58,9 @@ public class PasadoFragment extends Fragment {
         tvNombre1 = view.findViewById(R.id.tv_hotel1_nombre);
         tvRuta1 = view.findViewById(R.id.tv_pasajero1);
 
-        btnCompletado1 = view.findViewById(R.id.btn_completado1);
+        ConstraintLayout pasado1 = view.findViewById(R.id.pasado1);
 
-        btnCompletado1.setOnClickListener(new View.OnClickListener() {
+        pasado1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Navegar a DetallesReservaPasadoActivity
