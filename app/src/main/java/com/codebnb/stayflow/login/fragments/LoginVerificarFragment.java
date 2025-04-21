@@ -1,4 +1,4 @@
-package com.codebnb.stayflow;
+package com.codebnb.stayflow.login.fragments;
 
 import android.os.Bundle;
 
@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.codebnb.stayflow.R;
 import com.google.android.material.button.MaterialButton;
 
 /**

@@ -6,22 +6,33 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="24dp"
-    android:background="@android:color/white">
+    android:background="#1B1E3C"
+    >
+
+    <!-- LOGO DE LA APP -->
+    <ImageView
+        android:id="@+id/logo_app"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="Logo de StayFlow" />
+
+    <!-- Texto debajo del logo -->
+    <TextView
+        android:id="@+id/tv_login_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INICIA SESIÓN PARA TU RESERVA"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp" />
+
 
     <!-- Grupo de Chips estilo Material3 -->
 
-    <!-- Campo de correo con estilo Material -->
-
-    <com.google.android.material.chip.ChipGroup
-        android:layout_width="193dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="32dp"
-        android:gravity="center_horizontal"
-        app:singleLine="true"
-        app:singleSelection="false">
-
-    </com.google.android.material.chip.ChipGroup>
-
+    <!-- Campo de correo -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +47,7 @@
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Campo de contraseña con icono de mostrar/ocultar -->
+    <!-- Campo de contraseña -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,7 +63,7 @@
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Botón de iniciar sesión estilo Material -->
+    <!-- Botón iniciar sesión -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
@@ -65,7 +76,7 @@
         android:textColor="@android:color/white"
         android:layout_marginBottom="16dp" />
 
-    <!-- Texto de recuperación de contraseña -->
+    <!-- Texto de recuperación -->
     <TextView
         android:id="@+id/tv_olvide_password"
         android:layout_width="wrap_content"
