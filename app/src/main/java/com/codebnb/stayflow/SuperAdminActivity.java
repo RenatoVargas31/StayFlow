@@ -1,63 +1,52 @@
 package com.codebnb.stayflow;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 
-import com.google.android.material.appbar.MaterialToolbar;
-/*
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.codebnb.stayflow.R;
+import com.codebnb.stayflow.superAdmin.*;
+
 public class SuperAdminActivity extends AppCompatActivity {
 
-    private MaterialToolbar topAppBar;
+    BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.superadmin_activity);
-        
-        // Configurar la barra superior
-        topAppBar = findViewById(R.id.topAppBar);
-        setSupportActionBar(topAppBar);
-        
-        // Configurar el listener para el ícono de navegación
-        topAppBar.setNavigationOnClickListener(view -> {
-            // Manejar la navegación
-        });
 
-        // Configurar el listener para los elementos del menú
-        topAppBar.setOnMenuItemClickListener(menuItem -> {
-            switch (menuItem.getItemId()) {
-                case R.id.action_settings:
-                    // Manejar configuración
-                    return true;
-                case R.id.action_users:
-                    // Manejar gestión de usuarios
-                    return true;
-                case R.id.action_logout:
-                    // Manejar cierre de sesión
-                    return true;
-                default:
-                    return false;
+        bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_inicio) {
+                selectedFragment = new InicioFragment();
+            } else if (itemId == R.id.nav_gestion) {
+                selectedFragment = new GestionFragment();
+            } else if (itemId == R.id.nav_reportes) {
+                selectedFragment = new ReportesFragment();
+            } else if (itemId == R.id.nav_perfil) {
+                selectedFragment = new PerfilFragment();
             }
+
+            return loadFragment(selectedFragment);
         });
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        // Cargar fragmento inicial
+        bottomNav.setSelectedItemId(R.id.nav_inicio);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.superadmin_menu, menu);
-        return true;
+    private boolean loadFragment(Fragment fragment) {
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
-}*/
+}
