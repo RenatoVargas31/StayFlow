@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:startDestination="@id/adminInicioFragment">
 
-    <!-- Fragments del menú inferior -->
+    <!-- Menú inferior -->
     <fragment
         android:id="@+id/adminInicioFragment"
         android:name="com.codebnb.stayflow.adminHotel.home.AdminInicioFragment"
@@ -17,7 +17,17 @@
     <fragment
         android:id="@+id/huespedAdminFragment"
         android:name="com.codebnb.stayflow.adminHotel.HuespedAdminFragment"
-        android:label="Huésped" />
+        android:label="Huésped">
+        <action
+            android:id="@+id/action_huespedAdminFragment_to_reservasAdminFragment"
+            app:destination="@id/reservasAdminFragment" />
+        <action
+            android:id="@+id/action_huespedAdminFragment_to_taxiAdminFragment"
+            app:destination="@id/taxiAdminFragment" />
+        <action
+            android:id="@+id/action_huespedAdminFragment_to_checkoutAdminFragment"
+            app:destination="@id/checkoutAdminFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/chatAdminFragment"
@@ -29,7 +39,7 @@
         android:name="com.codebnb.stayflow.adminHotel.PerfilAdminFragment"
         android:label="Perfil" />
 
-    <!-- Fragments internos desde botones -->
+    <!-- Navegación desde botones -->
     <fragment
         android:id="@+id/ubicacionAdminFragment"
         android:name="com.codebnb.stayflow.adminHotel.home.UbicacionAdminFragment"
@@ -78,4 +88,39 @@
             app:destination="@id/serviciosAdminFragment" />
     </fragment>
 
+    <!-- Reservas y detalle -->
+    <fragment
+        android:id="@+id/reservasAdminFragment"
+        android:name="com.codebnb.stayflow.adminHotel.huesped.ReservasAdminFragment"
+        android:label="Reservas">
+        <action
+            android:id="@+id/action_reservasAdminFragment_to_detalleReservaFragment"
+            app:destination="@id/detalleReservaFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detalleReservaFragment"
+        android:name="com.codebnb.stayflow.adminHotel.huesped.DetalleReservaAdminFragment"
+        android:label="Detalle de reserva" />
+
+    <!-- Taxi y detalle -->
+    <fragment
+        android:id="@+id/taxiAdminFragment"
+        android:name="com.codebnb.stayflow.adminHotel.huesped.TaxiAdminFragment"
+        android:label="Taxi">
+        <action
+            android:id="@+id/action_taxiAdminFragment_to_detalleTaxiAdminFragment"
+            app:destination="@id/detalleTaxiAdminFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detalleTaxiAdminFragment"
+        android:name="com.codebnb.stayflow.adminHotel.huesped.DetalleTaxiAdminFragment"
+        android:label="Detalle del taxi" />
+
+    <!-- Checkout -->
+    <fragment
+        android:id="@+id/checkoutAdminFragment"
+        android:name="com.codebnb.stayflow.adminHotel.huesped.CheckoutAdminFragment"
+        android:label="Checkout" />
 </navigation>

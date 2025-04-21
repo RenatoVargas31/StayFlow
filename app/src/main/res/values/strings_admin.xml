@@ -112,5 +112,23 @@
     <string name="edit_service">Editar servicio</string>
     <string name="validation_service_error">Complete nombre y descripción del servicio</string>
 
+    <!-- Descripciones para el fragmento de huésped -->
+    <string name="desc_guest_list">Lista de huéspedes y reservas</string>
+    <string name="desc_taxi_service">Servicio de taxi</string>
+    <string name="desc_checkout">Proceso de check-out</string>
+
+    <!-- Títulos y descripciones -->
+    <string name="reservas_title">Gestión de Reservas</string>
+    <string name="reservas_description">Administra y visualiza las reservas realizadas por los huéspedes.</string>
+
+    <!-- Campo de búsqueda -->
+    <string name="search_hint">Buscar</string>
+
+    <!-- Contador de resultados -->
+    <string name="reservas_counter">0 resultados</string>
+
+    <!-- Accesibilidad -->
+    <string name="back_button_desc">Volver atrás</string>
+    <string name="search_icon_desc">Ícono de búsqueda</string>
 
 </resources>
