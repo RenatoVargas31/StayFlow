@@ -39,6 +39,9 @@
         <activity
             android:name=".DriverReservaActivity"
             android:exported="false" />
+        <activity
+            android:name=".superAdmin.AddHotelAdminActivity"
+            android:exported="false" />
         <!--
 <activity
             android:name=".DriverActivity"

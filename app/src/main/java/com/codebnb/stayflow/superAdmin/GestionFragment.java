@@ -1,5 +1,6 @@
 package com.codebnb.stayflow.superAdmin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -9,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +20,8 @@ import com.codebnb.stayflow.R;
 import com.codebnb.stayflow.superAdmin.adapter.UserAdapter;
 import com.codebnb.stayflow.superAdmin.model.User;
 import com.google.android.material.chip.ChipGroup;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +32,9 @@ public class GestionFragment extends Fragment implements UserAdapter.OnUserClick
     private UserAdapter userAdapter;
     private List<User> userList;
     private EditText searchEditText;
+    private ExtendedFloatingActionButton fabAddHotelAdmin;
+    private ChipGroup chipGroupFiltro;
+    private ActivityResultLauncher<Intent> addAdminLauncher;
 
     public GestionFragment() {}
 
@@ -37,8 +45,9 @@ public class GestionFragment extends Fragment implements UserAdapter.OnUserClick
 
         // Inicializar vistas
         recyclerViewUsers = view.findViewById(R.id.recyclerViewUsers);
-        ChipGroup chipGroupFiltro = view.findViewById(R.id.chipGroupFiltro);
+        chipGroupFiltro = view.findViewById(R.id.chipGroupFiltro);
         searchEditText = view.findViewById(R.id.searchEditText);
+        fabAddHotelAdmin = view.findViewById(R.id.fabAddHotelAdmin);
 
         // Configurar RecyclerView
         recyclerViewUsers.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -50,6 +59,19 @@ public class GestionFragment extends Fragment implements UserAdapter.OnUserClick
         userAdapter = new UserAdapter(userList, this);
         recyclerViewUsers.setAdapter(userAdapter);
 
+        // Registrar el launcher para el resultado de la actividad
+        addAdminLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == android.app.Activity.RESULT_OK) {
+                        // Aquí se actualiza la lista cuando se regresa de AddHotelAdminActivity
+                        Snackbar.make(view, "Administrador agregado con éxito", Snackbar.LENGTH_SHORT).show();
+                        // En el futuro, actualizar la lista con datos de la BD
+                        // Por ahora, simulamos agregando un nuevo admin a la lista local
+                        addDummyAdmin();
+                    }
+                });
+
         // Configurar listener para los chips
         chipGroupFiltro.setOnCheckedStateChangeListener((group, checkedIds) -> {
             if (checkedIds.isEmpty()) return;
@@ -59,16 +81,19 @@ public class GestionFragment extends Fragment implements UserAdapter.OnUserClick
 
             if (selectedId == R.id.chipTodos) {
                 filterType = "Todos";
+                fabAddHotelAdmin.show(); // Mostrar botón
             } else if (selectedId == R.id.chipAdmins) {
                 filterType = "Admin";
+                fabAddHotelAdmin.show(); // Mostrar botón
             } else if (selectedId == R.id.chipTaxistas) {
                 filterType = "Taxista";
+                fabAddHotelAdmin.hide(); // Ocultar botón
             } else if (selectedId == R.id.chipClientes) {
                 filterType = "Cliente";
+                fabAddHotelAdmin.hide(); // Ocultar botón
             }
 
             userAdapter.filterByType(filterType);
-            Toast.makeText(getContext(), "Filtro: " + filterType, Toast.LENGTH_SHORT).show();
         });
 
         // Configurar listener para la búsqueda
@@ -85,6 +110,20 @@ public class GestionFragment extends Fragment implements UserAdapter.OnUserClick
             }
         });
 
+        // Configurar el botón de agregar administrador
+        fabAddHotelAdmin.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), AddHotelAdminActivity.class);
+            addAdminLauncher.launch(intent);
+        });
+
+        // Inicialmente, ver si debemos mostrar el botón
+        int checkedChipId = chipGroupFiltro.getCheckedChipId();
+        if (checkedChipId == R.id.chipTodos || checkedChipId == R.id.chipAdmins) {
+            fabAddHotelAdmin.show();
+        } else {
+            fabAddHotelAdmin.hide();
+        }
+
         return view;
     }
 
@@ -100,6 +139,13 @@ public class GestionFragment extends Fragment implements UserAdapter.OnUserClick
         userList.add(new User("Carlos López", "Admin", "Admin Hotel Las Estrellas", true));
         userList.add(new User("Ana Torres", "Taxista", "Taxista", false));
     }
+
+    private void addDummyAdmin() {
+        User newAdmin = new User("Nuevo Admin", "Admin", "Admin Hotel Recién Agregado", true);
+        userAdapter.addUser(newAdmin);
+        recyclerViewUsers.smoothScrollToPosition(0);
+    }
+
 
     @Override
     public void onDetailsClick(int position) {
