@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.codebnb.stayflow.R;
+import com.codebnb.stayflow.SuperAdminActivity;
 import com.google.android.material.button.MaterialButton;
 
 public class InicioFragment extends Fragment {
@@ -21,12 +22,8 @@ public class InicioFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         MaterialButton btnLogs = view.findViewById(R.id.goToLogsButton);
         btnLogs.setOnClickListener(v -> {
-            Fragment logsFragment = new LogsFragment();
-            requireActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, logsFragment)
-                    .addToBackStack(null)
-                    .commit();
+            // Usamos el método de SuperAdminActivity para abrir un fragmento secundario
+            ((SuperAdminActivity) requireActivity()).openSecondaryFragment(new LogsFragment(), "Logs");
         });
     }
 }

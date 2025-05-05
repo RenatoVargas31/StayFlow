@@ -175,4 +175,5 @@ public class ReportDetailFragment extends Fragment {
         lineChart.getDescription().setEnabled(false);
         lineChart.invalidate();
     }
+
 }

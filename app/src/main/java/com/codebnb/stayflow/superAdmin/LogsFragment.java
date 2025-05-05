@@ -103,4 +103,7 @@ public class LogsFragment extends Fragment {
                         R.drawable.ic_hotel)
         ));
     }
+    public String getTitle() {
+        return "Logs";
+    }
 }

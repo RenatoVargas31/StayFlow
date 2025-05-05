@@ -139,4 +139,11 @@ public class FilterReportFragment extends Fragment {
                 .addToBackStack(null)
                 .commit();
     }
+
+    public String getTitle() {
+        if (getArguments() != null) {
+            return getArguments().getString("HOTEL_NAME", "Filtro de Reportes");
+        }
+        return "Filtro de Reportes";
+    }
 }

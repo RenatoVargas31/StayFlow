@@ -140,11 +140,20 @@ public class GestionFragment extends Fragment implements UserAdapter.OnUserClick
         userList.add(new User("Julian Casablancas", "Admin", "Admin Hotel El Cielo", false));
         userList.add(new User("Juan Perez", "Taxista", "Taxista", true));
         userList.add(new User("Luis Navejas", "Cliente", "Cliente", true));
-        userList.add(new User("Julian Casablancas", "Admin", "Admin Hotel El Cielo", false));
-        userList.add(new User("Juan Perez", "Taxista", "Taxista", true));
         userList.add(new User("María González", "Cliente", "Cliente", true));
         userList.add(new User("Carlos López", "Admin", "Admin Hotel Las Estrellas", true));
         userList.add(new User("Ana Torres", "Taxista", "Taxista", false));
+        userList.add(new User("Mario Vargas Llosa", "Admin", "Admin Hotel Libertad", true));
+        userList.add(new User("Alejandra Pizarnik", "Cliente", "Cliente", false));
+        userList.add(new User("Idea Vilariño", "Cliente", "Cliente", true));
+        userList.add(new User("Fiódor Dostoyevski", "Taxista", "Taxista", false));
+        userList.add(new User("Franz Kafka", "Admin", "Admin Hotel Metamorfosis", true));
+        userList.add(new User("Jesús Andrés Luján Carrión", "Cliente", "Cliente", true));
+        userList.add(new User("Joji", "Cliente", "Cliente", true));
+        userList.add(new User("Haruki Murakami", "Admin", "Admin Hotel Tokio", false));
+        userList.add(new User("Albert Camus", "Cliente", "Cliente", false));
+        userList.add(new User("Tralalero tralala", "Cliente", "Cliente", true));
+        userList.add(new User("María Zardoya", "Admin", "Admin Hotel Espectro", true));
     }
 
     private void addNewUser(User newUser) {

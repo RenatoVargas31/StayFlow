@@ -120,4 +120,8 @@ public class UserDetailFragment extends Fragment {
             }
         }
     }
+
+    public String getTitle() {
+        return "Detalle de Usuario";
+    }
 }
