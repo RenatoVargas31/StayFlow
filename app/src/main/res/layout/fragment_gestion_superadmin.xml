@@ -131,7 +131,7 @@
         android:layout_marginBottom="80dp"
         android:text="Agregar Administrador de Hotel"
         app:icon="@drawable/ic_add_circle"
-        app:chipIconTint="@color/md_theme_primary"/>
+        app:chipIconTint="@color/md_theme_inversePrimary_mediumContrast"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

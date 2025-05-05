@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_apartment"
-                app:tint="@color/md_theme_secondaryFixedDim"
+                app:tint="@color/md_theme_onPrimaryContainer"
                 android:padding="16dp"
                 android:contentDescription="Imagen del hotel" />
         </FrameLayout>
@@ -66,10 +66,10 @@
 
                 <ImageView
                     android:id="@+id/imageViewReports"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_bar_chart_4_bars_24dp"
-                    app:tint="@color/md_theme_secondaryFixedDim"
+                    app:tint="@color/md_theme_onSurface_highContrast"
                     android:contentDescription="Icono de reportes" />
 
                 <TextView

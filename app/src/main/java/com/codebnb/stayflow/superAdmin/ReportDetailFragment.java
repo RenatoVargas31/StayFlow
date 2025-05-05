@@ -62,7 +62,7 @@ public class ReportDetailFragment extends Fragment {
             filterType = getArguments().getString(ARG_FILTER_TYPE);
             startDate = getArguments().getLong(ARG_START_DATE);
             endDate = getArguments().getLong(ARG_END_DATE);
-            
+
             Log.d(TAG, "Hotel: " + hotelName);
             Log.d(TAG, "Filter Type: " + filterType);
             Log.d(TAG, "Start Date: " + new Date(startDate));
@@ -98,17 +98,32 @@ public class ReportDetailFragment extends Fragment {
 
         buttonBack.setOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
 
-        // Toggle de gráficos
+        // Establece los colores iniciales correctamente
+        buttonBarras.setBackgroundColor(getResources().getColor(R.color.purple_700)); // Fondo activo
+        buttonBarras.setTextColor(Color.WHITE); // Texto activo
+        buttonLineal.setBackgroundColor(Color.TRANSPARENT); // Fondo inactivo
+        buttonLineal.setTextColor(getResources().getColor(R.color.purple_700)); // Texto inactivo
+
+        // Toggle de gráficos con configuración completa de estilos
         buttonBarras.setOnClickListener(v -> {
             barChart.setVisibility(View.VISIBLE);
             lineChart.setVisibility(View.GONE);
+
+            // Actualiza apariencia de botones
+            buttonBarras.setBackgroundColor(getResources().getColor(R.color.purple_700));
             buttonBarras.setTextColor(Color.WHITE);
+            buttonLineal.setBackgroundColor(Color.TRANSPARENT);
             buttonLineal.setTextColor(getResources().getColor(R.color.purple_700));
         });
+
         buttonLineal.setOnClickListener(v -> {
             lineChart.setVisibility(View.VISIBLE);
             barChart.setVisibility(View.GONE);
+
+            // Actualiza apariencia de botones
+            buttonLineal.setBackgroundColor(getResources().getColor(R.color.purple_700));
             buttonLineal.setTextColor(Color.WHITE);
+            buttonBarras.setBackgroundColor(Color.TRANSPARENT);
             buttonBarras.setTextColor(getResources().getColor(R.color.purple_700));
         });
 
@@ -145,7 +160,7 @@ public class ReportDetailFragment extends Fragment {
 
         // Configurar gráfico de barras
         BarDataSet barDataSet = new BarDataSet(barEntries, "Reservas");
-        barDataSet.setColor(getResources().getColor(R.color.purple_700));
+        barDataSet.setColor(getResources().getColor(R.color.md_theme_inversePrimary));
         BarData barData = new BarData(barDataSet);
         barChart.setData(barData);
         barChart.getDescription().setEnabled(false);
@@ -153,8 +168,8 @@ public class ReportDetailFragment extends Fragment {
 
         // Configurar gráfico lineal
         LineDataSet lineDataSet = new LineDataSet(lineEntries, "Reservas");
-        lineDataSet.setColor(getResources().getColor(R.color.purple_700));
-        lineDataSet.setCircleColor(getResources().getColor(R.color.purple_700));
+        lineDataSet.setColor(getResources().getColor(R.color.md_theme_inversePrimary));
+        lineDataSet.setCircleColor(getResources().getColor(R.color.md_theme_inversePrimary));
         LineData lineData = new LineData(lineDataSet);
         lineChart.setData(lineData);
         lineChart.getDescription().setEnabled(false);

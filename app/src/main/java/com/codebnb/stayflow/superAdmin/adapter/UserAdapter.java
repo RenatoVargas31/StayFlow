@@ -47,22 +47,27 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
         holder.textViewUserName.setText(user.getName());
         holder.textViewUserRole.setText(user.getRoleDescription());
-        holder.switchUserStatus.setChecked(user.isEnabled());
         holder.textViewUserStatus.setText(user.isEnabled() ? "Habilitado" : "Deshabilitado");
 
-        holder.imageViewDetails.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onDetailsClick(holder.getAdapterPosition());
-            }
-        });
+        // 🔴 Evita que el listener se dispare al hacer setChecked
+        holder.switchUserStatus.setOnCheckedChangeListener(null);
+        holder.switchUserStatus.setChecked(user.isEnabled());
 
+        // 🟢 Vuelve a asignar el listener después de setChecked
         holder.switchUserStatus.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (listener != null) {
                 listener.onStatusChanged(holder.getAdapterPosition(), isChecked);
                 holder.textViewUserStatus.setText(isChecked ? "Habilitado" : "Deshabilitado");
             }
         });
+
+        holder.imageViewDetails.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onDetailsClick(holder.getAdapterPosition());
+            }
+        });
     }
+
 
     @Override
     public int getItemCount() {

@@ -26,7 +26,8 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_person"
                 android:padding="16dp"
-                android:contentDescription="Avatar del usuario" />
+                android:contentDescription="Avatar del usuario"
+                app:tint="@color/md_theme_onPrimaryContainer"/>
         </FrameLayout>
 
         <!-- Información del usuario -->

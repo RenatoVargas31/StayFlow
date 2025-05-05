@@ -1,5 +1,6 @@
 package com.codebnb.stayflow.superAdmin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -20,8 +21,15 @@ import android.widget.LinearLayout;
 
 public class AddHotelAdminActivity extends AppCompatActivity {
 
+    private LinearLayout sectionInfoPersonal;
     private LinearLayout sectionCredenciales;
     private MaterialButton buttonGuardar;
+
+    // Constantes para los extras del Intent
+    public static final String EXTRA_ADMIN_NAME = "admin_name";
+    public static final String EXTRA_ADMIN_ROLE = "admin_role";
+    public static final String EXTRA_ADMIN_ROLE_DESC = "admin_role_desc";
+    public static final String EXTRA_ADMIN_ENABLED = "admin_enabled";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +49,7 @@ public class AddHotelAdminActivity extends AppCompatActivity {
         dropdownTipoDocumento.setAdapter(adapter);
 
         // Referencias a secciones
+        sectionInfoPersonal = findViewById(R.id.sectionInfoPersonal);
         sectionCredenciales = findViewById(R.id.sectionCredenciales);
         buttonGuardar = findViewById(R.id.buttonGuardar);
 
@@ -48,8 +57,9 @@ public class AddHotelAdminActivity extends AppCompatActivity {
         MaterialButton buttonContinuar = findViewById(R.id.buttonContinuar);
         buttonContinuar.setOnClickListener(view -> {
             if (validarFormulario()) {
-                view.setVisibility(View.GONE); // Ocultar botón continuar
-                sectionCredenciales.setVisibility(View.VISIBLE); // Mostrar segunda parte
+                // Ocultar primera sección y mostrar la sección de credenciales
+                sectionInfoPersonal.setVisibility(View.GONE);
+                sectionCredenciales.setVisibility(View.VISIBLE);
             }
         });
 
@@ -57,7 +67,6 @@ public class AddHotelAdminActivity extends AppCompatActivity {
         buttonGuardar.setOnClickListener(v -> {
             if (validarCredenciales()) {
                 guardarDatosAdministrador();
-                setResult(RESULT_OK);
                 finish();
             }
         });
@@ -66,10 +75,27 @@ public class AddHotelAdminActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
+            // Si estamos en la sección de credenciales, volver a la primera sección
+            if (sectionCredenciales.getVisibility() == View.VISIBLE) {
+                sectionCredenciales.setVisibility(View.GONE);
+                sectionInfoPersonal.setVisibility(View.VISIBLE);
+                return true;
+            }
+            getOnBackPressedDispatcher().onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Si estamos en la sección de credenciales, volver a la primera sección
+        if (sectionCredenciales.getVisibility() == View.VISIBLE) {
+            sectionCredenciales.setVisibility(View.GONE);
+            sectionInfoPersonal.setVisibility(View.VISIBLE);
+            return;
+        }
+        super.onBackPressed();
     }
 
     private boolean validarFormulario() {
@@ -147,11 +173,29 @@ public class AddHotelAdminActivity extends AppCompatActivity {
     }
 
     private void guardarDatosAdministrador() {
-        // Obtener el estado del switch
+        // Obtener datos del formulario
+        TextInputEditText editTextNombres = findViewById(R.id.editTextNombres);
+        TextInputEditText editTextApellidos = findViewById(R.id.editTextApellidos);
         SwitchMaterial switchHabilitado = findViewById(R.id.switchHabilitado);
+
+        // Construir el nombre completo
+        String nombreCompleto = editTextNombres.getText().toString().trim() + " " +
+                editTextApellidos.getText().toString().trim();
+
+        // Obtener el estado del switch
         boolean habilitado = switchHabilitado.isChecked();
 
-        // TODO: Guardar en la base de datos o enviar a servidor
-        Log.d("AddHotelAdmin", "Administrador guardado. Habilitado: " + habilitado);
+        // Crear un Intent con los datos
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra(EXTRA_ADMIN_NAME, nombreCompleto);
+        resultIntent.putExtra(EXTRA_ADMIN_ROLE, "Admin"); // Rol fijo para administradores
+        resultIntent.putExtra(EXTRA_ADMIN_ROLE_DESC, "Admin Hotel");
+        resultIntent.putExtra(EXTRA_ADMIN_ENABLED, habilitado);
+
+        // Establecer el resultado
+        setResult(RESULT_OK, resultIntent);
+
+        // Registro para depuración
+        Log.d("AddHotelAdmin", "Administrador guardado: " + nombreCompleto + ", Habilitado: " + habilitado);
     }
 }

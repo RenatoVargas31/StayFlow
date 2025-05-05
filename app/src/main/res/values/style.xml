@@ -12,7 +12,7 @@
     </style>
     <!-- Estilo para un MaterialButton con fondo relleno -->
     <style name="CustomMaterialButtonStyle" parent="Widget.MaterialComponents.Button">
-        <item name="android:backgroundTint">@color/purple_700</item>
+        <item name="android:backgroundTint">@color/md_theme_primary</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:paddingStart">16dp</item>
         <item name="android:paddingEnd">16dp</item>

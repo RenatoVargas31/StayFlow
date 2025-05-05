@@ -39,13 +39,15 @@
         <activity
             android:name=".driver.reserva.DetallesReservaActivity"
             android:exported="false" />
+        <activity android:name=".superAdmin.AddHotelAdminActivity"
+                  android:exported="false" />
         <!--
 <activity
             android:name=".DriverActivity"
             android:exported="false" />
         -->
         <activity
-            android:name=".DriverActivity"
+            android:name=".SuperAdminActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -63,12 +63,19 @@ public class GestionFragment extends Fragment implements UserAdapter.OnUserClick
         addAdminLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
-                    if (result.getResultCode() == android.app.Activity.RESULT_OK) {
-                        // Aquí se actualiza la lista cuando se regresa de AddHotelAdminActivity
+                    if (result.getResultCode() == android.app.Activity.RESULT_OK && result.getData() != null) {
+                        // Extraer los datos del Intent
+                        Intent data = result.getData();
+                        String name = data.getStringExtra(AddHotelAdminActivity.EXTRA_ADMIN_NAME);
+                        String role = data.getStringExtra(AddHotelAdminActivity.EXTRA_ADMIN_ROLE);
+                        String roleDesc = data.getStringExtra(AddHotelAdminActivity.EXTRA_ADMIN_ROLE_DESC);
+                        boolean enabled = data.getBooleanExtra(AddHotelAdminActivity.EXTRA_ADMIN_ENABLED, true);
+
+                        // Crear y añadir el nuevo usuario
+                        User newAdmin = new User(name, role, roleDesc, enabled);
+                        addNewUser(newAdmin);
+
                         Snackbar.make(view, "Administrador agregado con éxito", Snackbar.LENGTH_SHORT).show();
-                        // En el futuro, actualizar la lista con datos de la BD
-                        // Por ahora, simulamos agregando un nuevo admin a la lista local
-                        addDummyAdmin();
                     }
                 });
 
@@ -140,12 +147,12 @@ public class GestionFragment extends Fragment implements UserAdapter.OnUserClick
         userList.add(new User("Ana Torres", "Taxista", "Taxista", false));
     }
 
-    private void addDummyAdmin() {
-        User newAdmin = new User("Nuevo Admin", "Admin", "Admin Hotel Recién Agregado", true);
-        userAdapter.addUser(newAdmin);
+    private void addNewUser(User newUser) {
+        // Añadir al inicio de la lista para que sea visible inmediatamente
+        userAdapter.addUser(newUser);
+        // Hacer scroll hasta el primer elemento para mostrar el nuevo usuario
         recyclerViewUsers.smoothScrollToPosition(0);
     }
-
 
     @Override
     public void onDetailsClick(int position) {
